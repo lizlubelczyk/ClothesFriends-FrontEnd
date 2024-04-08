@@ -9,7 +9,7 @@ function PasswordRecovery() {
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
-      <div className="square1">
+      <div className="bigsquare">
         <div className="instructions">Ingresa tu correo electrónico  y te enviaremos un enlace para que recuperes el acceso a tu cuenta</div>
         <div className="input">
             <img src={mail} alt=""/>

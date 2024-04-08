@@ -1,59 +1,56 @@
 .container {
-    background-color: rgb(0, 0, 0);
-    width: 90vw;
-    height: 160vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative; /* Add position relative to the container */
-  }
+  background-color: rgb(0, 0, 0);
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative; /* Add position relative to the container */
+  
+}
   
   .circle {
-    width: 200px;
-    height: 200px;
+    width: 10vh; /* 20% of the smallest viewport dimension */
+    height: 10vh; /* 20% of the smallest viewport dimension */
     border-radius: 50%;
     background-color: white;
     border: 8px solid gray;
     position: relative; /* Add position relative to the circle */
     z-index: 1; /* Ensure circle is above the background */
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 5%; /* Adjust as needed */
   }
   
   .logo {
-    position: absolute; /* Position the logo absolutely within the container */
-    top: 45%; /* Position the logo in the center vertically */
+    position: absolute; /* Position the logo absolutely within the circle */
+    top: 50%; /* Position the logo in the center vertically */
     left: 50%; /* Position the logo in the center horizontally */
     transform: translate(-50%, -50%); /* Center the logo */
-    width: 150px; /* Adjust width of the logo as needed */
-    height: 150px; /* Adjust height of the logo as needed */
+    width: 80%; /* Adjust width of the logo as a percentage of the circle's size */
+    height: 80%; /* Adjust height of the logo as a percentage of the circle's size */
     z-index: 2; /* Ensure logo is above the circle */
   }
 
   .square1 {
-    width: 500px; /* Adjust width of the square as needed */
-    height: 620px; /* Adjust height of the square as needed */
+    max-width: 500px; /* Adjust width of the square as needed */
+    width: 60%;
+    height: 70vh; /* Set height of the square as a percentage of the container's height */
     background-color: gray;
     position: absolute; /* Position the square absolutely within the container */
-    top: 36px; /* Position the square in the center vertically */
+    top: 60%; /* Position the square in the center vertically */
     left: 50%; /* Position the square in the center horizontally */
-    transform: translate(-50%, 50%); /* Center the square */
+    transform: translate(-50%, -50%); /* Center the square */
     z-index: 0; /* Ensure square is below the circle */
     border-radius: 20px;
+    padding: 20px; /* Add padding inside the square */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    display: flex; /* Set the square to be a flex container */
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center the items horizontally */
+    justify-content: center; /* Center the items vertically */
+    overflow: auto; /* Add a scrollbar if the content overflows */
+    padding-top: 15%;
   }
-
-  .text-field {
-    width: 80%; /* Adjust width of text field */
-    height: 70px; /* Set height of text field */
-    background-color: white; /* Set background color of text field */
-    border-color: white ;
-    border-radius: 20px;
-    text-indent: 20px;
-    color: black;
-    margin: 9% ; /* Center the text fields horizontally */
-    margin-bottom: 10px; /* Add margin between text fields */
-  
-  }
-  
   
   .text-field::placeholder {
     color: black; /* Set placeholder color to black */
@@ -61,9 +58,9 @@
     font-size: 30;
   }
   
-  .button1{
-    width: 200px;
-    height: 50px;
+  .button1 {
+    width: 50%; /* Adjust width of button */
+    height: 20%; /* Set height of button */
     background-color: #4A4E69;
     color: black;
     font-weight: bold;
@@ -72,8 +69,7 @@
     font-size: 16px;
     cursor: pointer;
     outline: none;
-    margin: 30%;
-    margin-top: 0px; /* Adjust margin-top to separate from text fields */
+    margin-top: 2%; /* Adjust margin-top to separate from text fields */
   }
 
   .name{
@@ -93,11 +89,15 @@
   .input{
     display: flex;
     align-items: center;
-    margin:50px;
-    width: 400px;
-    height: 70px;
+    margin:5%;
+    width: 90%;
+    height: 15%;
     background:white;
     border-radius: 20px
+  }
+
+  .input:first-child {
+    margin-top: 10%; /* Adjust margin-top to lower the first input field */
   }
 
 .input img{
@@ -105,8 +105,8 @@
 }
 
 .input input{
-    height: 50px;
-    width: 400px;
+    height: 100;
+    width: 100%;
     background: transparent;
     border: none;
     outline: none;
