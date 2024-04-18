@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
 
   const navigate = useNavigate(); // Initialize useHistory
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSignUpClick = () => {
     // Navigate to the Sign-Up screen
@@ -19,14 +22,34 @@ function Login() {
     // Navigate to the Password Recovery screen
     navigate('/PasswordRecovery'); // Replace '/password-recovery' with your actual route
   };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+  
+    const response = await fetch('http://localhost:8080/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+  
+    const data = await response.json();
+  
+    if (response.ok) {
+      localStorage.setItem('token', data.token);
+      navigate('../Home/Feed'); // Redirect to Feed component
+    } else {
+      setMessage(data);
+    }
+  };
  
-  const [action, setAction] = useState("Iniciar Sesión ");
   return (
     <div className="container">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
-      <div className="bigsquare">
+      <div className="square">
       <div className="input">
             <img src={user} alt=""/>
             <input type="text" placeholder='Nombre de Usuario'/>
