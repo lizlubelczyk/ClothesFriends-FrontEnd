@@ -1,11 +1,11 @@
 import React from 'react';
-import './PasswordRecovery.css';
+import './PasswordRecovery.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import mail from '../Assets/mail.png';
 
 function PasswordRecovery() {
   return (
-    <div className="container">
+    <div className="recovery-container">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
@@ -21,7 +21,7 @@ function PasswordRecovery() {
       </div>
       
       
-      <div className="name">Clothes Friends</div>
+
     </div>
   );
 }

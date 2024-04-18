@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Login.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import lock from '../Assets/lock.png';
 import user from '../Assets/user.png';
@@ -22,14 +22,14 @@ function Login() {
  
   const [action, setAction] = useState("Iniciar Sesión ");
   return (
-    <div className="container">
+    <div className="login-container">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
       <div className="bigsquare">
       <div className="input">
             <img src={user} alt=""/>
-            <input type="text" placeholder='Nombre de Usuario'/>
+            <input type="text" placeholder='Usuario'/>
         </div>
         <div className="input">
             <img src={lock} alt=""/>
@@ -40,10 +40,10 @@ function Login() {
       </div>
       
       <div className="square2">
-      <button className="button2" onClick={handleSignUpClick}>Registrarme</button>
-      </div> 
-      <div className="name">Clothes Friends</div>
-    </div>
+        <button className="button2" onClick={handleSignUpClick}>Registrarme</button>
+        </div> 
+        <h1 className="name">Clothes Friends</h1>
+      </div>
   );
 }
 
