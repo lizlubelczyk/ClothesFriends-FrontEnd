@@ -9,8 +9,8 @@
   position: relative; /* Add position relative to the container */
   
   .circle {
-    width: 10vh; /* 20% of the smallest viewport dimension */
-    height: 10vh; /* 20% of the smallest viewport dimension */
+    width: 18vh; /* 20% of the smallest viewport dimension */
+    height: 18vh; /* 20% of the smallest viewport dimension */
     border-radius: 50%;
     background-color: white;
     border: 8px solid gray;
@@ -33,7 +33,7 @@
 
   .square1 {
     max-width: 500px; /* Adjust width of the square as needed */
-    width: 60%;
+    width: 90%;
     height: 70vh; /* Set height of the square as a percentage of the container's height */
     background-color: gray;
     position: absolute; /* Position the square absolutely within the container */
