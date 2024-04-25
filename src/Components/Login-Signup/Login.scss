@@ -1,0 +1,166 @@
+.login-container {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Add position relative to the container */
+
+  .circle {
+    width: 100px;
+    
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    border: 8px solid gray;
+    position: relative; /* Add position relative to the circle */
+    z-index: 1; /* Ensure circle is above the background */
+    margin-bottom: 50px; /* Adjust as needed */
+    
+    .logo {
+      position: absolute; /* Position the logo absolutely within the container */
+      top: 45%; /* Position the logo in the center vertically */
+      left: 50%; /* Position the logo in the center horizontally */
+      transform: translate(-50%, -50%); /* Center the logo */
+      width: 80%; /* Adjust width of the logo as needed */
+      height: 80%; /* Adjust height of the logo as needed */
+      z-index: 5; /* Ensure logo is above the circle */
+    }
+  }
+
+  
+
+  .bigsquare{
+    width: 80%;
+    height:300px;
+    background-color: gray;
+    
+    border-radius: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    justify-content: center;
+    
+
+    .button{
+      width: 70%;
+      height: fit-content;
+      background-color: #4A4E69;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 10px; /* Adjust margin-top to separate from text fields */
+    }
+
+    
+
+    
+
+  }
+
+  .square2 {
+    width: 80%; /* Adjust width of the square as needed */
+    height: 120px; /* Adjust height of the square as needed */
+    background-color: gray;
+    
+    border-radius: 20px;
+    .button2{
+      width: 60%;
+      height: 50px;
+      background-color: #4A4E69;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      margin: 30%;
+      position: absolute;
+      right: -10%;
+      margin-top: 35px; /* Adjust margin-top to separate from text fields */
+    }
+  }
+
+  .text-field {
+    width: 80%; /* Adjust width of text field */
+    height: 70px; /* Set height of text field */
+    background-color: white; /* Set background color of text field */
+    border-color: white ;
+    border-radius: 20px;
+    text-indent: 20px;
+    color: black;
+    margin: 9% ; /* Center the text fields horizontally */
+    margin-bottom: 30px; /* Add margin between text fields */
+
+  }
+
+
+  .text-field::placeholder {
+    color: black; /* Set placeholder color to black */
+    font-weight: bold;
+    font-size: 30;
+  }
+
+  .forgot-password {
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 40%;
+    
+    display: flex;
+    justify-content: center;
+    
+    font-size: 15px; /* Adjust font size */
+    cursor: pointer; /* Add cursor pointer on hover */
+
+  }
+
+  .name{
+    
+    color: white;
+    font-weight: bold;
+    margin-bottom: -10%;
+    
+    font-size: 50px;
+    cursor: pointer;
+    
+  }
+
+  .input{
+    display: flex;
+    align-items: center;
+    margin:auto;
+    width: 75%;
+    height: 60px;
+    background:white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+
+    img{
+      margin:0px 30px;
+    }
+
+    input{
+      height: 50px;
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #797979;
+      font-size: 19px;
+    }
+  }
+
+}
+

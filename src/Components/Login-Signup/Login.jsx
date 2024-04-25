@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Login.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import lock from '../Assets/lock.png';
 import user from '../Assets/user.png';
@@ -44,7 +44,7 @@ const handleSubmit = (event) => {
   }
 
   return (
-    <div className="container">
+    <div className="login-container">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
@@ -52,11 +52,13 @@ const handleSubmit = (event) => {
       <div className="input">
             <img src={user} alt=""/>
             <input type="text" placeholder='Nombre de Usuario' name='username' onChange={handleInput}/>
+
         </div>
         <div className="input">
             <img src={lock} alt=""/>
             <input type="text" placeholder='Contraseña' name='password' onChange={handleInput}/>
         </div>
+
         {errorMessage && <div>{errorMessage}</div>}
         <button className="button1" onClick={handleSubmit}>Iniciar Sesión</button>
         <Link to={'/PasswordRecovery'}>¿Olvidaste tu contraseña?</Link>

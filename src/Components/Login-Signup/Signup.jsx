@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react';
-import './Signup.css';
+import './Signup.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import mail from '../Assets/mail.png';
 import user from '../Assets/user.png';
@@ -70,7 +70,7 @@ const handleClick = async () => {
 
   return (
     
-    <div className="container">
+    <div className="signupcontainer">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
