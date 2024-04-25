@@ -3,14 +3,18 @@ import './Login.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import lock from '../Assets/lock.png';
 import user from '../Assets/user.png';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Login() {
 
   const navigate = useNavigate(); // Initialize useHistory
+  const [values, setValues] = useState('')
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const [message, setMessage] = useState('');
 
   const handleSignUpClick = () => {
@@ -23,27 +27,22 @@ function Login() {
     navigate('/PasswordRecovery'); // Replace '/password-recovery' with your actual route
   };
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-  
-    const response = await fetch('http://localhost:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
-  
-    const data = await response.json();
-  
-    if (response.ok) {
-      localStorage.setItem('token', data.token);
-      navigate('../Home/Feed'); // Redirect to Feed component
-    } else {
-      setMessage(data);
-    }
-  };
- 
+const handleInput = (event) => {
+  setValues( prev => ({...prev , [event.target.name] : event.target.value}))
+}
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  axios.post('http://localhost:8080/login', values)
+    .then(res=> {
+      const { token } =  res.json();
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('username', res.data.username);
+      navigate('/Feed');
+    })
+    .catch(err => console.log(err))
+  }
+
   return (
     <div className="login-container">
         <div className="circle">
@@ -52,21 +51,24 @@ function Login() {
       <div className="square">
       <div className="input">
             <img src={user} alt=""/>
-            <input type="text" placeholder='Usuario'/>
+            <input type="text" placeholder='Nombre de Usuario' name='username' onChange={handleInput}/>
+
         </div>
         <div className="input">
             <img src={lock} alt=""/>
-            <input type="text" placeholder='Contraseña'/>
+            <input type="text" placeholder='Contraseña' name='password' onChange={handleInput}/>
         </div>
-        <button className="button" >Iniciar Sesión</button>
-        <div className="forgot-password" onClick={handlePasswordRecoveryClick} >¿Olvidaste tu contraseña?</div>
+
+        {errorMessage && <div>{errorMessage}</div>}
+        <button className="button1" onClick={handleSubmit}>Iniciar Sesión</button>
+        <Link to={'/PasswordRecovery'}>¿Olvidaste tu contraseña?</Link>
       </div>
       
       <div className="square2">
-        <button className="button2" onClick={handleSignUpClick}>Registrarme</button>
-        </div> 
-        <h1 className="name">Clothes Friends</h1>
-      </div>
+      <Link to={'/Signup'}>Registrarme</Link>
+      </div> 
+      <div className="name">Clothes Friends</div>
+    </div>
   );
 }
 
