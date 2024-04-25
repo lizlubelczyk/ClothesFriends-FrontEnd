@@ -1,0 +1,72 @@
+.prendas-container {
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-superior {
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.boton-volver {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin-top: 60px;
+  }
+}
+
+.botones-prendas {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .top, .bottom {
+        background-color: #9A8C98;
+        color: black;
+        border: none;
+        border-radius: 50%;
+        padding: 20px;
+        font-size: 70px;
+        margin-bottom: 100px;
+        height: 270px;
+        width: 270px;
+  }
+}
+
+.barra-fija {
+    background-color: white;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    gap: 2px;
+    position: fixed;
+    bottom: 0;
+    margin-left: -22px;
+    height: 60px;
+
+    button {
+        font-size: 35px;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border: none;
+        margin-top: 10px;
+    }
+}
+
+  
