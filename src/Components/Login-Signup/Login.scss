@@ -74,14 +74,15 @@
     background-color: gray;
     
     border-radius: 20px;
-    .button2{
+    a{
       width: 60%;
-      height: 50px;
+      height: fit-content;
       background-color: #4A4E69;
-      color: black;
+      color: rgb(255, 255, 255);
       font-weight: bold;
       border: none;
       border-radius: 20px;
+      padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
       outline: none;
@@ -89,6 +90,9 @@
       position: absolute;
       right: -10%;
       margin-top: 35px; /* Adjust margin-top to separate from text fields */
+      text-align: center;
+      box-sizing: border-box;
+      text-decoration: none;
     }
   }
 
@@ -137,30 +141,63 @@
     
   }
 
-  .input{
+  .square{
     display: flex;
-    align-items: center;
-    margin:auto;
-    width: 75%;
-    height: 60px;
-    background:white;
+    width: 80%;
+    background-color: gray;
     border-radius: 20px;
-    margin-bottom: 20px;
-
-    img{
-      margin:0px 30px;
-    }
-
-    input{
-      height: 50px;
-      width: 100%;
-      background: transparent;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    .button1{
+      width: 60%;
+      height: fit-content;
+      background-color: #4A4E69;
+      color: white;
+      font-weight: bold;
       border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
       outline: none;
-      color: #797979;
-      font-size: 19px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 10px; 
+      margin-bottom: 10px;
+
     }
+  
+
+    .input{
+      display: flex;
+      align-items: center;
+      margin:auto;
+      width: 75%;
+      height: 60px;
+      background:white;
+      border-radius: 20px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+  
+      img{
+        margin:0px 30px;
+      }
+  
+      input{
+        height: 50px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #797979;
+        font-size: 19px;
+      }
+  
+    }
+
   }
+
+
 
 }
 
