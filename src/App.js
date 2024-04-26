@@ -9,6 +9,7 @@ import Inspiracion from './Components/Home/Inspiracion.jsx';
 import Prendas from './Components/Home/Prendas.jsx';
 import Feed from './Components/Home/Feed.jsx';
 
+import Feed from './Components/Home/Feed.jsx';
 function App() {
   return (
     <Router> {/* Use BrowserRouter */}
