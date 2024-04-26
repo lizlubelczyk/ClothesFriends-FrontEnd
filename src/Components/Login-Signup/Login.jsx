@@ -51,7 +51,7 @@ const handleSubmit = (event) => {
       <div className="square">
       <div className="input">
             <img src={user} alt=""/>
-            <input type="text" placeholder='Nombre de Usuario' name='username' onChange={handleInput}/>
+            <input type="text" placeholder='Usuario' name='username' onChange={handleInput}/>
 
         </div>
         <div className="input">
@@ -61,7 +61,6 @@ const handleSubmit = (event) => {
 
         {errorMessage && <div>{errorMessage}</div>}
         <button className="button1" onClick={handleSubmit}>Iniciar Sesión</button>
-        <Link to={'/PasswordRecovery'}>¿Olvidaste tu contraseña?</Link>
       </div>
       
       <div className="square2">
