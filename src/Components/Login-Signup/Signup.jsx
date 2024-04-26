@@ -5,9 +5,12 @@ import mail from '../Assets/mail.png';
 import user from '../Assets/user.png';
 import lock from '../Assets/lock.png';
 import idcard from '../Assets/idcard.png';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function Signup() {
 
+  const navigate= useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -47,14 +50,13 @@ const handleClick = async () => {
     const resMessage = await res.text();
   
     console.log(resMessage);
+    navigate("/")
   }
   catch (error) {
     console.log(error);
   }
   
 };
-
-// ...
 
    
    

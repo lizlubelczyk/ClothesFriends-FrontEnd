@@ -35,10 +35,10 @@ const handleSubmit = (event) => {
   event.preventDefault();
   axios.post('http://localhost:8080/login', values)
     .then(res=> {
-      const { token } =  res.json();
+      const { token } =  res.data;
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.username);
-      navigate('/Feed');
+      navigate('/MyFeed');
     })
     .catch(err => console.log(err))
   }
