@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 
 import Login from './Components/Login-Signup/Login.jsx';
 import Signup from './Components/Login-Signup/Signup.jsx';
-import MyFeed from './Components/Login-Signup/Myfeed.jsx';
-
+import MyFeed from './Components/Feed/Myfeed.jsx';
+import Profile from './Components/Profile/Profile.jsx';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Myfeed' element={<MyFeed />} />
+        <Route path='/Profile' element={<Profile />} />
       </Routes>
     </Router>
   );

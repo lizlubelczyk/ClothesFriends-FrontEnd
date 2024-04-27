@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Login.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
-import lock from '../Assets/lock.png';
-import user from '../Assets/user.png';
+
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { FaUserAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import withNoAuth from '../withAuth/withNoAuth';
 
 function Login() {
 
@@ -17,15 +18,6 @@ function Login() {
 
   const [message, setMessage] = useState('');
 
-  const handleSignUpClick = () => {
-    // Navigate to the Sign-Up screen
-    navigate('/Signup'); // Replace '/signup' with your actual route
-  };
-
-  const handlePasswordRecoveryClick = () => {
-    // Navigate to the Password Recovery screen
-    navigate('/PasswordRecovery'); // Replace '/password-recovery' with your actual route
-  };
 
 const handleInput = (event) => {
   setValues( prev => ({...prev , [event.target.name] : event.target.value}))
@@ -37,8 +29,8 @@ const handleSubmit = (event) => {
     .then(res=> {
       const { token } =  res.data;
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('username', res.data.username);
-      navigate('/MyFeed');
+      localStorage.setItem('userId', res.data.id);
+      navigate('/Profile');
     })
     .catch(err => console.log(err))
   }
@@ -50,12 +42,12 @@ const handleSubmit = (event) => {
       </div>
       <div className="square">
       <div className="input">
-            <img src={user} alt=""/>
+            <FaUserAlt size={20} />
             <input type="text" placeholder='Usuario' name='username' onChange={handleInput}/>
 
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} />
             <input type="text" placeholder='Contraseña' name='password' onChange={handleInput}/>
         </div>
 
@@ -71,4 +63,4 @@ const handleSubmit = (event) => {
   );
 }
 
-export default Login;
+export default withNoAuth(Login);
