@@ -1,0 +1,100 @@
+html, body{
+    height: 100%;
+    background-color: black;
+}
+.edit-container{
+    background-color: rgb(0, 0, 0);
+    color : black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 20px;
+        .back-button{
+            position: absolute;
+            left: 20px;
+            background-color: transparent;
+            border-width: 0px;
+
+        }
+        .title{
+            margin: 0;
+            color:white;
+            font-size: 30px;
+        }
+    }
+    .profile-picture-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        .profile-picture{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px;
+        }
+        .edit-photo-text{
+            margin-top: -10px;
+            color: white;
+            font-weight: bold;
+        }
+    }
+    .edit-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-top: 20px;
+        .input {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            border: none;
+            border-bottom: 1px solid #fff;
+            color: white;
+            padding: 10px;
+            margin-bottom: 30px;
+
+            svg {
+                margin-right: 10px;
+                color: white;
+            }
+
+            input {
+                background: transparent;
+                border: none;
+                color: white;
+            }
+            input::placeholder {
+                color: gray;
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+        .button {
+            background-color: #4A4E69;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+            padding: 10px 0; // Add equal padding to the top and bottom
+            width: 70%;
+            margin: 0 auto; // Center the button horizontally
+            display: flex; // These two lines center the text vertically
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+    
+}

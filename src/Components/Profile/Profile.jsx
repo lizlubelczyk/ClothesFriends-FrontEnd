@@ -69,7 +69,7 @@ function Profile() {
         <BsThreeDotsVertical color= 'white' size= {30}/>
         {showMenu && (
           <div className='menu'>
-            <button onClick={() => navigate('/edit-profile')}>Edit Profile</button>
+            <button onClick={() => navigate('/Edit')}>Edit Profile</button>
             <button onClick={handleLogout}>Logout</button>
           </div>
         )}
