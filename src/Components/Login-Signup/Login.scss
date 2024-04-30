@@ -93,6 +93,9 @@
       text-align: center;
       box-sizing: border-box;
       text-decoration: none;
+      &:hover {
+        background-color: #C9ADA7;
+      }
     }
   }
 
@@ -118,20 +121,7 @@
     font-weight: bold;
     font-size: 30;
   }
-
-  .forgot-password {
-    color: white;
-    width: 100%;
-    font-weight: bold;
-    margin-bottom: 40%;
-    
-    display: flex;
-    justify-content: center;
-    
-    font-size: 15px; /* Adjust font size */
-    cursor: pointer; /* Add cursor pointer on hover */
-
-  }
+  
 
   .name{
     
@@ -167,6 +157,9 @@
       padding-bottom: 10px;
       margin-top: 10px; 
       margin-bottom: 10px;
+      &:hover {
+        background-color: #C9ADA7;
+      }
 
     }
   
@@ -184,6 +177,7 @@
   
       .icon{
         margin-left: 20px;
+        margin-right: 20px;
       }
   
       input{

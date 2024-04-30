@@ -29,13 +29,18 @@
         position: absolute;
         cursor: pointer;
         top: 20px;
-        right: 10px;
+        right: 20px;
+        border-radius: 20px;
+
+        &:hover {
+            background-color: #C9ADA7;
+          }
         .menu {
           display: none;
           position: absolute;
           right: 0;
           background-color: #fff;
-          border: 1px solid #ddd;
+          border: 5px solid #ddd;
           border-radius: 5px;
           padding: 10px;
           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -50,6 +55,8 @@
             text-align: left;
             width: 100%;
             display: block;
+            font-weight: bold;
+            font-size: 20px;
       
             &:hover {
               background-color: #f1f1f1;
@@ -128,6 +135,7 @@
         align-self: flex-end;
         background-color: #D9D9D9;
         margin-right: 20px;
+        border-color: #fff;
     }
 
     .square1 {
@@ -143,6 +151,9 @@
         cursor: pointer;
         border-radius: 20px;
         margin-left: 20px;
+        &:hover {
+            background-color: #C9ADA7;
+          }
 
         span {
             color: #262626;
@@ -176,6 +187,9 @@
         cursor: pointer;
         border-radius: 20px;
         margin-left: 20px;
+        &:hover {
+            background-color: #C9ADA7;
+          }
 
 
         span {
