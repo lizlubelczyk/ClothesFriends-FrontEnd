@@ -6,6 +6,10 @@ import user from '../Assets/user.png';
 import lock from '../Assets/lock.png';
 import idcard from '../Assets/idcard.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaUserAlt } from "react-icons/fa";
+import { FaIdCard } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
 
 function Signup() {
@@ -78,24 +82,24 @@ const handleClick = async () => {
       </div>
       <div className="square1">
       <div className="input">
-            <img src={mail} alt=""/>
+            <FaEnvelope size={20} className='icon' />
             <input type="text" placeholder='Correo Electrónico' onChange={(e)=>setEmail(e.target.value)}/>
 
         </div>
         <div className="input">
-            <img src={idcard} alt=""/>
+            <FaIdCard size={20} className='icon' />
             <input type="text" placeholder='Nombre Completo' onChange={(e)=>setFullName(e.target.value)} />
         </div>
         <div className="input">
-            <img src={user} alt=""/>
+            <FaUserAlt size={20} className='icon' />
             <input type="text" placeholder='Nombre de Usuario' onChange={(e)=>setUsername(e.target.value)}/>
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Contraseña' onChange={(e)=>setPassword(e.target.value)}/>
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Confirmar Contraseña' onChange={(e)=>setConfirmPassword(e.target.value)}/>
         </div>
         

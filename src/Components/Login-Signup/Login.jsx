@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import withNoAuth from '../withAuth/withNoAuth';
+import withNoAuth from '../extras/withNoAuth';
 
 function Login() {
 
@@ -41,13 +41,13 @@ const handleSubmit = (event) => {
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
       <div className="square">
-      <div className="input">
-            <FaUserAlt size={20} />
+        <div className="input">
+            <FaUserAlt size={20} className='icon' />
             <input type="text" placeholder='Usuario' name='username' onChange={handleInput}/>
 
         </div>
         <div className="input">
-            <FaLock size={20} />
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Contraseña' name='password' onChange={handleInput}/>
         </div>
 

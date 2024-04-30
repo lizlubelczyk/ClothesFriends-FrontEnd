@@ -37,7 +37,7 @@
     height: 70vh; /* Set height of the square as a percentage of the container's height */
     background-color: gray;
     position: absolute; /* Position the square absolutely within the container */
-    top: 60%; /* Position the square in the center vertically */
+    top: 62%; /* Position the square in the center vertically */
     left: 50%; /* Position the square in the center horizontally */
     transform: translate(-50%, -50%); /* Center the square */
     z-index: 0; /* Ensure square is below the circle */
@@ -60,7 +60,7 @@
   
   .button1 {
     width: 50%; /* Adjust width of button */
-    height: 20%; /* Set height of button */
+    height: 35%; /* Set height of button */
     background-color: #4A4E69;
     color: black;
     font-weight: bold;
@@ -70,6 +70,9 @@
     cursor: pointer;
     outline: none;
     margin-top: 2%; /* Adjust margin-top to separate from text fields */
+    &:hover {
+      background-color: #C9ADA7;
+    }
   }
 
   .name{
@@ -89,20 +92,21 @@
   .input{
     display: flex;
     align-items: center;
-    margin:5%;
+    margin:4%;
     width: 90%;
-    height: 15%;
+    height: 40%;
     background:white;
     border-radius: 20px
   }
 
   .input:first-child {
-    margin-top: 10%; /* Adjust margin-top to lower the first input field */
+    margin-top: -40px; /* Adjust margin-top to lower the first input field */
   }
 
-.input img{
-    margin:0px 30px;
-}
+  .icon{
+    margin-left: 20px;
+    margin-right: 10px;
+  }
 
 .input input{
     height: 100;

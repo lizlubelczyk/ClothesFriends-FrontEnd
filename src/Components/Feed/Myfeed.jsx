@@ -16,7 +16,7 @@ import comentarios from '../Assets/comentario.png';
 import { FaHeart } from "react-icons/fa";
 import { FaHeartBroken } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import withAuth from '../withAuth/withAuth';
+import withAuth from '../extras/withAuth';
 
 function Myfeed()  {
     const navigate = useNavigate();

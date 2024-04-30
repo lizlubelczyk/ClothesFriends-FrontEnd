@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Profile.scss';
 import pfp from '../Assets/pfp.jpg';
 import { useNavigate } from 'react-router-dom';
-import withAuth from '../withAuth/withAuth';
+import withAuth from '../extras/withAuth';
 import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
@@ -76,7 +76,7 @@ function Profile() {
       </div>
             <div className="perfil">
                 <div className="pfp">
-                    <img src={pfp} alt="" />
+                    <img src={user.profilePicture} alt="" />
                 </div>
                 <div className="botones-seguidores">
                     <button className="seguidores">n seguidores</button>
