@@ -63,4 +63,4 @@ const handleSubmit = (event) => {
   );
 }
 
-export default withNoAuth(Login);
+export default Login;
