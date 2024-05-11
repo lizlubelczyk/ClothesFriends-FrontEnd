@@ -47,7 +47,7 @@ const handleClick = async () => {
         email: email,
         password: password,
         username: username,
-        name: fullName
+        fullName: fullName
       }),
     });
   

@@ -44,7 +44,6 @@ const handleSubmit = (event) => {
         <div className="input">
             <FaUserAlt size={20} className='icon' />
             <input type="text" placeholder='Usuario' name='username' onChange={handleInput}/>
-
         </div>
         <div className="input">
             <FaLock size={20} className='icon' />

@@ -6,6 +6,12 @@ import Signup from './Components/Login-Signup/Signup.jsx';
 import MyFeed from './Components/Feed/Myfeed.jsx';
 import Profile from './Components/Profile/Profile.jsx';
 import Edit from './Components/Profile/Edit.jsx';
+import Uploads from './Components/Profile/Uploads.jsx';
+import UploadCLothingItem from './Components/Profile/UploadClothingItem.jsx';
+import MyItems from './Components/Profile/MyItems.jsx'; 
+import MyTops from './Components/Profile/MyTops.jsx';
+import MyBottoms from './Components/Profile/MyBottoms.jsx';
+import MyAccesories from './Components/Profile/MyAccesories.jsx';
 
 function App() {
   return (
@@ -16,6 +22,12 @@ function App() {
         <Route path='/Myfeed' element={<MyFeed />} />
         <Route path='/Profile' element={<Profile />} />
         <Route path='/Edit' element={<Edit />} />
+        <Route path='/Uploads' element={<Uploads />} />
+        <Route path='/UploadClothingItem' element={<UploadCLothingItem />} />
+        <Route path='/MyItems' element={<MyItems />} />
+        <Route path='/MyTops' element={<MyTops />} />
+        <Route path='/MyBottoms' element={<MyBottoms/>}/>
+        <Route path='/MyAccesories' element={<MyAccesories/>}/>
       </Routes>
     </Router>
   );

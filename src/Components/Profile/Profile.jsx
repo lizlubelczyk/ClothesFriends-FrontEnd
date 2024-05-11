@@ -11,6 +11,7 @@ import { FaSquarePollVertical } from "react-icons/fa6";
 import { IoNotifications } from "react-icons/io5";
 import { TiPlus } from "react-icons/ti";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 function Profile() {
     const [showMenu, setShowMenu] = useState(false);
@@ -45,7 +46,7 @@ function Profile() {
 
 
     const handleFeedClick = () => {
-        navigate('/CategoriasPrendas')
+        navigate('/MyItems')
     };
     const handleInspiracionClick = () => {
         navigate('/Inspiracion')
@@ -89,15 +90,17 @@ function Profile() {
             </button>
             
 
-            <button className="square1" onClick={handleFeedClick}>
+            <Link to="/MyItems" className="square1">
                 <span className="prendas">PRENDA</span>
-            </button>
+            </Link>
             <button className="square2" onClick={handleInspiracionClick}>
                 <span className="inspiracion">INSPIRACIÓN</span>
             </button>
 
             <button className="subir-post">
-                <TiPlus size={50} />
+                <Link to="/Uploads">
+                <TiPlus size={50} color="black" />
+                </Link>
             </button>
 
             <div className="barra-fija">

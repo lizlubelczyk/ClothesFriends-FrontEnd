@@ -21,36 +21,32 @@ function Edit() {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [whatsappLink, setWhatsappLink] = useState('');
+    const [profilePicture, setProfilePicture] = useState('');
 
     useEffect(() => {
-        async function fetchUser() {
-            try {
-                const userId = localStorage.getItem('userId');
-                const token = localStorage.getItem('token'); // Add this line
-                const response = await fetch(`http://localhost:8080/api/user/get/${userId}`, {
-                    method: 'GET',
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-    
-                if (response.ok) {
-                    const data = await response.json();
-                    setUser(data);
-                    setUsername(data.username || "");
-                    setEmail(data.email || "");
-                    setFullName(data.fullName || "");
-                    setWhatsappLink(data.whatsappLink || "");
-                } else {
-                    console.log('Error');
-                }
-            } catch (error) {
-                console.error('An error occurred while fetching the user:', error);
-            }
+        const fetchUser = async () => {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+        console.log(userId);
+        console.log(token);
+        const response = await fetch(`http://localhost:8080/api/user/get/${userId}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        
+        });
+        if (response.ok) {
+            const data = await response.json();
+            setUser(data);
         }
-    
-        fetchUser();
+        else {
+            console.log('Error');
+        }
+    }; // Add closing parenthesis here
+    fetchUser();
+
     }, []);
 
     function handleDeleteUser() {
@@ -65,7 +61,7 @@ function Edit() {
             const response = await fetch(`http://localhost:8080/api/user/me/delete/${userId}`, {
             method: 'DELETE',
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}` // Include the token in the 'Authorization' header
             },
             });
@@ -90,38 +86,69 @@ function Edit() {
       }
 
       const handleSubmit = async (event) => {
-        event.preventDefault();
     
-        const user = {
-            username,
-            email,
-            fullName,
-            whatsappLink,
-            // Include other form fields here...
-        };
+        // Validate required fields (example)
+        if (!user.username || !user.email) {
+            console.error("Username and Email are required");
+            return;
+        }
     
         try {
-            const userId = localStorage.getItem('userId');
-            const token = localStorage.getItem('token'); // Retrieve the token from local storage
+            const userId = localStorage.getItem("userId");
+            const token = localStorage.getItem("token");
+    
             const response = await fetch(`http://localhost:8080/api/user/me/update/${userId}`, {
-                method: 'PUT',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // Include the token in the headers
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+
                 },
                 body: JSON.stringify(user),
             });
     
             if (response.ok) {
-                const data = await response.json();
-                // Use the response data as needed...
+                console.log("User updated successfully");
+                navigate("/profile"); // Navigate after successful update
             } else {
-                console.error('An error occurred while updating the user:', await response.text());
+                console.error("Error updating user");
             }
         } catch (error) {
-            console.error('An error occurred while updating the user:', error);
+            console.error("An error occurred while updating the user:", error);
         }
     };
+    
+    
+    const handleFileChange = async (event) => {
+        const file = event.target.files[0]; // Get the selected file
+        const userId = localStorage.getItem("userId");
+        const token = localStorage.getItem("token");
+    
+        const formData = new FormData(); // Use FormData for file uploads
+        formData.append("profilePicture", file);
+    
+        try {
+            const response = await fetch(`http://localhost:8080/api/user/me/${userId}/profile-picture`, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                },
+                body: formData,
+            });
+    
+            if (response.ok) {
+                const updatedUser = await response.json();
+                setUser(updatedUser); // Update the user with the new profile picture
+            } else {
+                console.error("Error uploading profile picture");
+            }
+        } catch (error) {
+            console.error("An error occurred while uploading the profile picture:", error);
+        }
+    };
+      
+
+      
     
     return (
         <div className="edit-container">
@@ -134,29 +161,29 @@ function Edit() {
                 <h1 className="title">Editar perfil</h1>
             </div>
             <div className="profile-picture-container">
-                <img className="profile-picture" src={pfp} alt="Profile" />
-                <p className="edit-photo-text">Editar foto</p>
+                <img className="profile-picture" src={user.profilePicture} alt="Profile" />
+                <input type="file" className="edit-photo-text" onChange={handleFileChange} /> // Self-closing
             </div>
-            <form className="edit-form" onSubmit={handleSubmit}>
+            <div className="edit-form" >
                 <div className="input"> 
                     <FaUserAlt size={20} color="gray" />
-                    <input type="text" placeholder='Nombre de usuario' name='username' value={username} onChange={e=> setUsername(e.target.value)} />
+                    <input type="text" placeholder='Nombre de usuario' name='username' value={user.username} onChange={e=> setUser(prevUser => ({ ...prevUser, username: e.target.value}))} />
                 </div>
                 <div className="input"> 
                     <FaEnvelope size={20} color="gray" />
-                    <input type="text" placeholder='Email' name='email' value={email} onChange={e=> setEmail(e.target.value)} />
+                    <input type="text" placeholder='Email' name='email' value={user.email} onChange={e=> setUser(prevUser => ({ ...prevUser, email: e.target.value}))} />
                 </div>
                 <div className="input"> 
                     <FaIdCard size={20} color="gray"/>
-                    <input type="text" placeholder='Nombre Completo' name='fullName' value={fullName} onChange={e => setFullName(e.target.value)} />
+                    <input type="text" placeholder='Nombre Completo' value={user.fullName} name='fullName'  onChange={e => setUser(prevUser => ({ ...prevUser, fullName: e.target.value}))} />
                 </div>
                 <div className="input"> 
                     <IoLogoWhatsapp size={20} color="gray" />
-                    <input type="text" placeholder='Link a Whatsapp' name='whatsappLink' value={whatsappLink} onChange={e=> setWhatsappLink(e.target.value)}/>
+                    <input type="text" placeholder='Link a Whatsapp' name='whatsappLink' value={user.whatsappLink} onChange={e=> setUser(prevUser => ({ ...prevUser, whatsappLink: e.target.value}))}/>
                 </div>
-                <button className="button" type="submit" >Guardar Cambios</button>
+                <button className="button" type="submit" onClick={handleSubmit} >Guardar Cambios</button>
                 <button className="button" type="button" onClick={handleDeleteUser}>Borrar Usuario</button>
-            </form>
+            </div>
                 {showModal && (
                     <div className="modal">
                         <div className="modal-content">
