@@ -2,7 +2,7 @@ import React from "react"
 import "./Uploads.scss"
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-import withAuth from "../extras/withAuth";
+import withAuth from "../../extras/withAuth";
 
 
 
@@ -24,7 +24,9 @@ function Uploads(){
                     <button className="profile-button">PRENDA</button>
                 </Link>                
                 <button className="profile-button">OUTFIT</button>
-                <button className="profile-button">INSPIRACIÓN</button>
+                <Link to="/UploadInspiration">
+                    <button className="profile-button">INSPIRACIÓN</button>
+                </Link> 
             </div>
 
         </div>

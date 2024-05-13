@@ -1,32 +1,34 @@
 import React from "react"
-import "./Uploads.scss"
+import "../Uploads/Uploads.scss"
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-import withAuth from "../extras/withAuth";
+import withAuth from "../../extras/withAuth";
 
 
-function MyItems(){
+function MyTops(){
 
     return(
         <div className="uploads-container">
             <div className="header">
                 <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/profile">
+                <Link to="/MyItems">
                     <IoIosArrowBack color="white" size="30" />
                 </Link>
                 </button>
-                <h1 className="title">Categorías</h1>
+                <h1 className="title">Tops</h1>
             </div>
             <div className="buttons-container">
                 <Link to="/MyTops">
-                    <button className="profile-button">TOP</button>
+                    <button className="profile-button">REMERAS</button>
                 </Link>                
-                <Link to="/MyBottoms">
-                    <button className="profile-button">BOTTOMS</button>
-                </Link>   
-                <Link to="/MyAccesories">
-                    <button className="profile-button">ACCESORIOS</button>
-                </Link> 
+                <button className="profile-button">TOPS</button>
+                <button className="profile-button">BUZOS</button>
+                <button className="profile-button">SWEATERS</button>
+                <button className="profile-button">BUZOS</button>
+                <button className="profile-button">CAMPERAS</button>
+
+
+
             </div>
 
         </div>
@@ -36,6 +38,6 @@ function MyItems(){
     )
 }
 
-export default withAuth(MyItems)
+export default withAuth(MyTops)
 
 
