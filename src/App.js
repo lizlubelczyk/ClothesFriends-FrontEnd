@@ -6,12 +6,13 @@ import Signup from './Components/Login-Signup/Signup.jsx';
 import MyFeed from './Components/Feed/Myfeed.jsx';
 import Profile from './Components/Profile/Profile.jsx';
 import Edit from './Components/Profile/Edit.jsx';
-import Uploads from './Components/Profile/Uploads.jsx';
-import UploadCLothingItem from './Components/Profile/UploadClothingItem.jsx';
-import MyItems from './Components/Profile/MyItems.jsx'; 
-import MyTops from './Components/Profile/MyTops.jsx';
-import MyBottoms from './Components/Profile/MyBottoms.jsx';
-import MyAccesories from './Components/Profile/MyAccesories.jsx';
+import Uploads from './Components/Profile/Uploads/Uploads.jsx';
+import UploadCLothingItem from './Components/Profile/Uploads/UploadClothingItem.jsx';
+import MyItems from './Components/Profile/ClothingItem//MyItems.jsx'; 
+import MyTops from './Components/Profile/ClothingItem/MyTops.jsx';
+import MyBottoms from './Components/Profile/ClothingItem/MyBottoms.jsx';
+import MyAccesories from './Components/Profile/ClothingItem/MyAccesories.jsx';
+import UploadInspiration from './Components/Profile/Uploads/UploadInspiration.jsx'; 
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/MyTops' element={<MyTops />} />
         <Route path='/MyBottoms' element={<MyBottoms/>}/>
         <Route path='/MyAccesories' element={<MyAccesories/>}/>
+        <Route path='/UploadInspiration' element={<UploadInspiration/>} />
       </Routes>
     </Router>
   );
