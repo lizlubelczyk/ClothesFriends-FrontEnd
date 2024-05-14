@@ -21,8 +21,9 @@ function MyTops(){
                 <Link to="/MyTops">
                     <button className="profile-button">REMERAS</button>
                 </Link>                
-                <button className="profile-button">TOPS</button>
-                <button className="profile-button">BUZOS</button>
+                <Link to="/MyTopsSubcategory">
+                    <button className="profile-button">TOPS</button>
+                </Link>                 <button className="profile-button">BUZOS</button>
                 <button className="profile-button">SWEATERS</button>
                 <button className="profile-button">BUZOS</button>
                 <button className="profile-button">CAMPERAS</button>

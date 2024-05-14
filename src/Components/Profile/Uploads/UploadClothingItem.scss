@@ -326,5 +326,37 @@
     
     
   }
+  
+  .upload-success-square {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4A4E69;
+    color:white;
+    font-weight: bold;
+    border-width: 0px;
+    padding: 20px;
+    text-align: center; /* Center align text */
+    border-radius: 20px;
+    .close-button {
+      margin-top: 10px; /* Adjust margin as needed */
+      padding: 5px 10px; /* Add padding to make the button clickable */
+      background-color: black; /* Example button color */
+      color: #ffffff; /* Example text color */
+      border: none;
+      border-radius: 20px;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        background-color: #C9ADA7; /* Example hover color */
+    }
+  }
+  
+}
+
+
+
+
   }
   
