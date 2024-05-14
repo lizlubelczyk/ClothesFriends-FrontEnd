@@ -24,6 +24,7 @@ function UploadInspiration(){
                 type="file"
                 className="image-upload-input" // Hidden input
                 //onChange={handleImageUpload}
+
                 style={{ display: "none" }} // Keep the input hidden
                 />
 
@@ -34,6 +35,7 @@ function UploadInspiration(){
                 <FaCamera size={20} color="black" className="icon" />
                 Seleccionar Imagen
                 </button>
+
 
         <div className="input-descripción">
           <FaPen size={20} className="icon" strokewidth={5} />
