@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Login.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
-import lock from '../Assets/lock.png';
-import user from '../Assets/user.png';
+
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { FaUserAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import withNoAuth from '../extras/withNoAuth';
 
 function Login() {
 
@@ -17,15 +18,6 @@ function Login() {
 
   const [message, setMessage] = useState('');
 
-  const handleSignUpClick = () => {
-    // Navigate to the Sign-Up screen
-    navigate('/Signup'); // Replace '/signup' with your actual route
-  };
-
-  const handlePasswordRecoveryClick = () => {
-    // Navigate to the Password Recovery screen
-    navigate('/PasswordRecovery'); // Replace '/password-recovery' with your actual route
-  };
 
 const handleInput = (event) => {
   setValues( prev => ({...prev , [event.target.name] : event.target.value}))
@@ -35,31 +27,31 @@ const handleSubmit = (event) => {
   event.preventDefault();
   axios.post('http://localhost:8080/login', values)
     .then(res=> {
-      const { token } =  res.json();
+      const { token } =  res.data;
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('username', res.data.username);
-      navigate('/Feed');
+      localStorage.setItem('userId', res.data.id);
+      navigate('/Profile');
     })
     .catch(err => console.log(err))
   }
 
   return (
-    <div className="container">
+    <div className="login-container">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
       <div className="square">
-      <div className="input">
-            <img src={user} alt=""/>
-            <input type="text" placeholder='Nombre de Usuario' name='username' onChange={handleInput}/>
+        <div className="input">
+            <FaUserAlt size={20} className='icon' />
+            <input type="text" placeholder='Usuario' name='username' onChange={handleInput}/>
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Contraseña' name='password' onChange={handleInput}/>
         </div>
+
         {errorMessage && <div>{errorMessage}</div>}
         <button className="button1" onClick={handleSubmit}>Iniciar Sesión</button>
-        <Link to={'/PasswordRecovery'}>¿Olvidaste tu contraseña?</Link>
       </div>
       
       <div className="square2">

@@ -1,0 +1,59 @@
+.subcategory-container {
+    background-color: rgb(0, 0, 0);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 20px;
+
+        .back-button {
+            position: absolute;
+            left: 20px;
+            background-color: transparent;
+            border-width: 0px;
+            border-radius: 100px;
+
+            &:hover {
+                background-color: #c9ada7;
+            }
+        }
+
+        .title {
+            margin: 0;
+            color: white;
+            font-size: 30px;
+        }
+    }
+
+    .clothing-items-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Use auto-fit instead of auto-fill */
+        grid-auto-rows: 200px;
+        grid-gap: 20px;
+
+        .clothing-item {
+            width: 100%;
+            max-width: 200px; /* Limit the width of each item */
+            height: 100%;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+}

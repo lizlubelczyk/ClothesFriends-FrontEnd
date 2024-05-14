@@ -1,4 +1,4 @@
-.container {
+.signupcontainer {
   background-color: rgb(0, 0, 0);
   width: 100vw; /* 100% of the viewport width */
   height: 100vh; /* 100% of the viewport height */
@@ -8,36 +8,36 @@
   align-items: center;
   position: relative; /* Add position relative to the container */
   
-}
-  
   .circle {
-    width: 10vh; /* 20% of the smallest viewport dimension */
-    height: 10vh; /* 20% of the smallest viewport dimension */
+    width: 18vh; /* 20% of the smallest viewport dimension */
+    height: 18vh; /* 20% of the smallest viewport dimension */
     border-radius: 50%;
     background-color: white;
     border: 8px solid gray;
     position: relative; /* Add position relative to the circle */
     z-index: 1; /* Ensure circle is above the background */
     margin-top: 5%; /* Adjust as needed */
+
+      
+    .logo {
+      position: absolute; /* Position the logo absolutely within the circle */
+      top: 50%; /* Position the logo in the center vertically */
+      left: 50%; /* Position the logo in the center horizontally */
+      transform: translate(-50%, -50%); /* Center the logo */
+      width: 80%; /* Adjust width of the logo as a percentage of the circle's size */
+      height: 80%; /* Adjust height of the logo as a percentage of the circle's size */
+      z-index: 2; /* Ensure logo is above the circle */
+    }
   }
-  
-  .logo {
-    position: absolute; /* Position the logo absolutely within the circle */
-    top: 50%; /* Position the logo in the center vertically */
-    left: 50%; /* Position the logo in the center horizontally */
-    transform: translate(-50%, -50%); /* Center the logo */
-    width: 80%; /* Adjust width of the logo as a percentage of the circle's size */
-    height: 80%; /* Adjust height of the logo as a percentage of the circle's size */
-    z-index: 2; /* Ensure logo is above the circle */
-  }
+
 
   .square1 {
     max-width: 500px; /* Adjust width of the square as needed */
-    width: 60%;
+    width: 90%;
     height: 70vh; /* Set height of the square as a percentage of the container's height */
     background-color: gray;
     position: absolute; /* Position the square absolutely within the container */
-    top: 60%; /* Position the square in the center vertically */
+    top: 62%; /* Position the square in the center vertically */
     left: 50%; /* Position the square in the center horizontally */
     transform: translate(-50%, -50%); /* Center the square */
     z-index: 0; /* Ensure square is below the circle */
@@ -60,7 +60,7 @@
   
   .button1 {
     width: 50%; /* Adjust width of button */
-    height: 20%; /* Set height of button */
+    height: 35%; /* Set height of button */
     background-color: #4A4E69;
     color: black;
     font-weight: bold;
@@ -70,6 +70,9 @@
     cursor: pointer;
     outline: none;
     margin-top: 2%; /* Adjust margin-top to separate from text fields */
+    &:hover {
+      background-color: #C9ADA7;
+    }
   }
 
   .name{
@@ -89,20 +92,21 @@
   .input{
     display: flex;
     align-items: center;
-    margin:5%;
+    margin:4%;
     width: 90%;
-    height: 15%;
+    height: 40%;
     background:white;
     border-radius: 20px
   }
 
   .input:first-child {
-    margin-top: 10%; /* Adjust margin-top to lower the first input field */
+    margin-top: -40px; /* Adjust margin-top to lower the first input field */
   }
 
-.input img{
-    margin:0px 30px;
-}
+  .icon{
+    margin-left: 20px;
+    margin-right: 10px;
+  }
 
 .input input{
     height: 100;
@@ -113,3 +117,7 @@
     color: #797979;
     font-size: 19px;
 }
+}
+  
+  
+  

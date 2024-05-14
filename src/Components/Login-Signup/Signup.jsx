@@ -1,13 +1,20 @@
 import React, { useEffect, useState }  from 'react';
-import './Signup.css';
+import './Signup.scss';
 import clothinghanger from '../Assets/clothinghanger.png';
 import mail from '../Assets/mail.png';
 import user from '../Assets/user.png';
 import lock from '../Assets/lock.png';
 import idcard from '../Assets/idcard.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaUserAlt } from "react-icons/fa";
+import { FaIdCard } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+
 
 function Signup() {
 
+  const navigate= useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -40,21 +47,20 @@ const handleClick = async () => {
         email: email,
         password: password,
         username: username,
-        name: fullName
+        fullName: fullName
       }),
     });
   
     const resMessage = await res.text();
   
     console.log(resMessage);
+    navigate("/")
   }
   catch (error) {
     console.log(error);
   }
   
 };
-
-// ...
 
    
    
@@ -70,30 +76,30 @@ const handleClick = async () => {
 
   return (
     
-    <div className="container">
+    <div className="signupcontainer">
         <div className="circle">
         <img src={clothinghanger} alt="ClothesFriends Logo" className="logo" />
       </div>
       <div className="square1">
       <div className="input">
-            <img src={mail} alt=""/>
+            <FaEnvelope size={20} className='icon' />
             <input type="text" placeholder='Correo Electrónico' onChange={(e)=>setEmail(e.target.value)}/>
 
         </div>
         <div className="input">
-            <img src={idcard} alt=""/>
+            <FaIdCard size={20} className='icon' />
             <input type="text" placeholder='Nombre Completo' onChange={(e)=>setFullName(e.target.value)} />
         </div>
         <div className="input">
-            <img src={user} alt=""/>
+            <FaUserAlt size={20} className='icon' />
             <input type="text" placeholder='Nombre de Usuario' onChange={(e)=>setUsername(e.target.value)}/>
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Contraseña' onChange={(e)=>setPassword(e.target.value)}/>
         </div>
         <div className="input">
-            <img src={lock} alt=""/>
+            <FaLock size={20} className='icon' />
             <input type="text" placeholder='Confirmar Contraseña' onChange={(e)=>setConfirmPassword(e.target.value)}/>
         </div>
         
