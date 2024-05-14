@@ -50,6 +50,14 @@
     justify-content: center; /* Center the items vertically */
     overflow: auto; /* Add a scrollbar if the content overflows */
     padding-top: 15%;
+
+    .error{
+      color: rgb(255, 0, 0);
+      font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 0;
+    
+    }
   }
   
   .text-field::placeholder {

@@ -36,7 +36,60 @@ function Signup() {
 
 const [userData, setUserData] = useState(null);
 
+const isValidEmail = (email) => {
+  const re = /\S+@\S+\.\S+$/;
+  return re.test(email);
+}
+
 const handleClick = async () => {
+  let newErrors = {
+    email: '',
+    password: '',
+    confirmPassword: '',
+    username: '',
+    fullName: ''
+  };
+
+  if (!email || !isValidEmail(email)) {
+    newErrors.email = 'Correo electrónico inválido';
+  }
+
+  if (!fullName.trim()) {
+    newErrors.fullName = 'Nombre completo requerido';
+  }
+
+  if (!username.trim()) {
+    newErrors.username = 'Nombre de usuario requerido';
+  }
+
+  if (!password) {
+    newErrors.password = 'Contraseña requerida';
+  }
+
+  if (!confirmPassword) {
+    newErrors.confirmPassword = 'Confirmar contraseña requerida';
+  }
+
+  if (password !== confirmPassword) {
+    newErrors.confirmPassword = 'Las contraseñas no coinciden';
+  }
+
+  if (Object.values(newErrors).some(error => error !== '')) {
+    setErrors(newErrors);
+    return;
+  }
+    // Validación adicional para verificar si hay campos incompletos
+    if (Object.values(newErrors).some(error => error !== '')) {
+      setErrors(newErrors);
+      return;
+    }
+  
+    // Validación adicional para verificar si todos los campos están completos
+    if (!email || !fullName || !username || !password || !confirmPassword) {
+      setErrors({ ...newErrors, general: 'Todos los campos son requeridos' });
+      return;
+    }
+  
   try{
     const res = await fetch('http://localhost:8080/register', {
       method: 'POST',
@@ -84,16 +137,18 @@ const handleClick = async () => {
       <div className="input">
             <FaEnvelope size={20} className='icon' />
             <input type="text" placeholder='Correo Electrónico' onChange={(e)=>setEmail(e.target.value)}/>
-
         </div>
+        {errors.email !== "" && <p className="error">{errors.email}</p>}
         <div className="input">
             <FaIdCard size={20} className='icon' />
             <input type="text" placeholder='Nombre Completo' onChange={(e)=>setFullName(e.target.value)} />
         </div>
+        {errors.fullName !== "" && <p className="error">{errors.fullName}</p>}
         <div className="input">
             <FaUserAlt size={20} className='icon' />
             <input type="text" placeholder='Nombre de Usuario' onChange={(e)=>setUsername(e.target.value)}/>
         </div>
+        {errors.username !== "" && <p className="error">{errors.username}</p>}
         <div className="input">
             <FaLock size={20} className='icon' />
             <input type="text" placeholder='Contraseña' onChange={(e)=>setPassword(e.target.value)}/>
@@ -102,6 +157,8 @@ const handleClick = async () => {
             <FaLock size={20} className='icon' />
             <input type="text" placeholder='Confirmar Contraseña' onChange={(e)=>setConfirmPassword(e.target.value)}/>
         </div>
+        {errors.confirmPassword !== "" && <p className="error">{errors.confirmPassword}</p>}
+
         
         <button className="button1" onClick={handleClick}>Registrate</button>
       </div>
