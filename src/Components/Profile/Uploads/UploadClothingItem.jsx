@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { TbHanger } from "react-icons/tb";
 
@@ -21,6 +21,7 @@ function UploadClothingItem() {
   const [isAvailable, setIsAvailable] = useState(true); // Availability
   const [image, setImage] = useState(null); // Image file
   const [imagePreview, setImagePreview] = useState(null);
+  const [uploadSuccess, setUploadSuccess] = useState(false); // Upload success state
 
 
   const categories = {
@@ -72,7 +73,7 @@ function UploadClothingItem() {
         };
         reader.readAsDataURL(file);
     }
-};
+  };
 
   const closeMainMenu = () => {
     setShowMainMenu(false); // Hide the main category menu
@@ -111,11 +112,13 @@ function UploadClothingItem() {
     });
 
     if (response.ok) {
-        // If the creation was successful, do something (e.g., redirect to another page or show a success message)
+        console.log('Clothing item created successfully');
+        setUploadSuccess(true);
     } else {
         console.error('Error creating clothing item:', await response.text());
     }
-};
+  };
+
 
   return (
     <div className="uploadclothingitem-container">
@@ -245,6 +248,15 @@ function UploadClothingItem() {
 
         <button className="subir-button" onClick={handleSubmit}>Subir Prenda</button>
       </div>
+
+      {uploadSuccess && (
+                <div className="upload-success-square">
+                    <p>Item uploaded successfully!</p>
+                    <Link to="/Uploads" className="close-button">
+                      Close
+                    </Link>
+                </div>
+            )}
     </div>
   );
 }

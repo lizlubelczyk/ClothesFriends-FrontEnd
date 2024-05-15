@@ -4,6 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import "./UploadClothingItem.scss";
 import withAuth from "../../extras/withAuth";
 import { FaTshirt, FaCamera, FaPen, FaHandHoldingHeart } from "react-icons/fa"; // Import the additional icon
+import axios from 'axios';
 
 
 function UploadInspiration(){
@@ -28,6 +29,7 @@ function UploadInspiration(){
       reader.readAsDataURL(file);
     }
   };
+
 
     return(
 
@@ -77,8 +79,9 @@ function UploadInspiration(){
                     //onChange={(e)=> setDescription(e.target.value)}
                 />
                 </div>
+
             </div>
-        </div>
+        
     )
 
 }
