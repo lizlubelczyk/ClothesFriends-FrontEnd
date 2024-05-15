@@ -196,7 +196,7 @@ function UploadClothingItem() {
             className="image-upload-input" // Hidden input
             onChange={handleImageUpload}
           />
-
+      
           <button
             className="select-category-button" // Custom-styled button
             onClick={() => document.querySelector(".image-upload-input").click()} // Open file dialog
