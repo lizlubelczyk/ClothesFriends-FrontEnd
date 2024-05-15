@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import "./UploadClothingItem.scss";
 import withAuth from "../../extras/withAuth";
-import { FaTshirt, FaCamera, FaPen, FaHandHoldingHeart } from "react-icons/fa"; // Import the additional icon
-import axios from 'axios';
+import {FaCamera, FaPen} from "react-icons/fa"; // Import the additional icon
 
 
 function UploadInspiration(){
@@ -34,16 +33,7 @@ function UploadInspiration(){
         }
       };
       
-      const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImagePreview(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-      };
+      
 
       const handleSubmit = async (event) => {
         event.preventDefault();
