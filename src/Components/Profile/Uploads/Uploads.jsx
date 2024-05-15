@@ -23,7 +23,9 @@ function Uploads(){
                 <Link to="/UploadClothingItem">
                     <button className="profile-button">PRENDA</button>
                 </Link>                
-                <button className="profile-button">OUTFIT</button>
+                <Link to="/UploadOutfit">
+                    <button className="profile-button">OUTFIT</button>
+                </Link>                 
                 <Link to="/UploadInspiration">
                     <button className="profile-button">INSPIRACIÓN</button>
                 </Link> 

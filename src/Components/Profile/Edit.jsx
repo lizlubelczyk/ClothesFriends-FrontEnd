@@ -29,7 +29,7 @@ function Edit() {
         const userId = localStorage.getItem('userId');
         console.log(userId);
         console.log(token);
-        const response = await fetch(`http://localhost:8080/api/user/get/${userId}`, {
+        const response = await fetch(`http://localhost:8080/api/user/get/${userId}/edit`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
