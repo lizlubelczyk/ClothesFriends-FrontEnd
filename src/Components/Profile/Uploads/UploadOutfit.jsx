@@ -96,7 +96,7 @@ function UploadOutfit() {
                 )}
             </div>
             <div className="input-descripción">
-                <FaPen size={20} className="icon" strokewidth={5} />
+                <FaPen size={20} className="icon" strokeWidth={5} />
                 <textarea
                     className="field"
                     type="text"

@@ -19,10 +19,10 @@
         display: flex;
         align-items: center;
         font-size: 30px;
+
         .user-icon {
             margin-right: 10px; // Adjust as needed
         }
-        
     }
 
     .menu-icon {
@@ -34,44 +34,43 @@
 
         &:hover {
             background-color: #C9ADA7;
-          }
-        .menu {
-          display: none;
-          position: absolute;
-          right: 0;
-          background-color: #fff;
-          border: 5px solid #ddd;
-          border-radius: 5px;
-          padding: 10px;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1;
-          width: 100px;
-      
-          button {
-            background: none;
-            border: none;
-            color: #333;
-            padding: 10px;
-            text-align: left;
-            width: 100%;
-            display: block;
-            font-weight: bold;
-            font-size: 20px;
-      
-            &:hover {
-              background-color: #f1f1f1;
-            }
-          }
         }
-      
-        &:hover {
-          .menu {
-            display: block;
-          }
-        }
-      }
 
-    .perfil{
+        .menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            border: 5px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            width: 100px;
+
+            button {
+                background: none;
+                border: none;
+                color: #333;
+                padding: 10px;
+                text-align: left;
+                width: 100%;
+                display: block;
+                font-weight: bold;
+                font-size: 20px;
+
+                &:hover {
+                    background-color: #f1f1f1;
+                }
+            }
+        }
+
+        &:hover .menu {
+            display: block;
+        }
+    }
+
+    .perfil {
         display: flex;
         align-items: center;
         margin-left: 10px;
@@ -84,14 +83,22 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-left: 20px;
-        margin-right: 20px;
+        width: 130px;
+        height: 130px;
+        position: relative;
+        overflow: hidden;
+
+        &.has-outfit {
+            border: 5px solid #C9ADA7; // Gold border, adjust the color as needed
+            border-radius: 50%;
+        }
 
         img {
-            border-radius: 50%;
             width: 130px;
             height: 130px;
-            margin-right: 20px;
+            object-fit: cover;
+            -webkit-clip-path: circle(50%);
+            clip-path: circle(50%);
         }
     }
 
@@ -99,32 +106,27 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
-        margin-left: 20px; // Ajuste de margen izquierdo
-        margin-bottom: 10px; // Ajuste de margen inferior
-        gap: 10px;
         flex-direction: column;
-        margin-right: 30px;
-        margin-left: -20px;
-    
+        gap: 10px;
+        margin-left: 30px; // Increase left margin to move text further to the right
+        margin-bottom: 10px;
 
-        .seguidos {
+        .seguidos, .seguidores {
             color: white;
             border: none;
             background-color: transparent;
-            margin: 0 10px;
             font-size: 23px;
-            margin-right: 32px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
+    }
 
-        .seguidores {
-            color: white;
-            border: none;
-            background-color: transparent;
-            margin: 0 10px;
-            font-size: 23px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
+    .full-name {
+        margin-left: 30px;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
     }
 
     .posts-likeados {
@@ -139,33 +141,34 @@
         border-color: #fff;
     }
 
-    .square1 {
+    .square1, .square2 {
         background-color: #9A8C98;
         width: 370px;
         height: 20vh;
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        margin-right: 100px;
-        margin-top: -20px;
-        margin-bottom: 30px;
+        margin-right: 20px;
+        margin-top: -10px;
+        margin-bottom: 20px;
         cursor: pointer;
         border-radius: 20px;
         margin-left: 20px;
+        border-width: 0px;
         text-decoration: none;
+
         &:hover {
             background-color: #C9ADA7;
-          }
+        }
 
         span {
             color: #262626;
             font-size: 40px;
-            line-height: 2
-            30px;
+            line-height: 2;
             text-decoration: none;
         }
 
-        .prendas{
+        .prendas {
             display: inline-block;
             margin-bottom: 0px;
             margin-left: 0px;
@@ -175,41 +178,16 @@
             font-weight: bold;
             text-decoration: none;
         }
-    
-    }
 
-    .square2{
-        background-color: #9A8C98;
-        width: 370px;
-        height: 20vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        margin-right: 20px;
-        margin-top: -10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        border-radius: 20px;
-        margin-left: 20px;
-        &:hover {
-            background-color: #C9ADA7;
-          }
-
-
-        span {
-            color: #262626;
-            font-size: 40px;
-            line-height: 2
-            30px;
-        }
-        .inspiracion{
+        .inspiracion {
             display: inline-block;
             margin-bottom: 0px;
             margin-left: 0px;
             left: 0px;
             font-size: 40px;
-            margin-right: 90px;
+            margin-right: 50px; // Reduce margin-right to fit text within the square
             font-weight: bold;
+            text-decoration: none;
         }
     }
 
@@ -224,6 +202,15 @@
         cursor: pointer;
         border-radius: 20px;
         z-index: 1;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
     }
 
     .barra-fija {
