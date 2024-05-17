@@ -16,6 +16,9 @@ import UploadInspiration from './Components/Profile/Uploads/UploadInspiration.js
 import MyTopsSubcategory from './Components/Profile/ClothingItem/MyTopsSubcategory.jsx';
 import MyClothingItemDetails from './Components/Profile/ClothingItem/MyClothingItemDetails.jsx';
 import UploadOutfit from './Components/Profile/Uploads/UploadOutfit.jsx';
+import MyInspirations from './Components/Profile/MyInspirations.jsx';
+import MyCurrentOutfit from './Components/Profile/MyCurrentOutfit.jsx';
+import MyInspirationDetails from './Components/Profile/MyInspirationDetails.jsx';
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
         <Route path='/MyTopsSubcategory' element={<MyTopsSubcategory/>} />
         <Route path='/MyClothingItemDetails' element={<MyClothingItemDetails/>} />
         <Route path='/UploadOutfit' element={<UploadOutfit/>} />
+        <Route path='/MyInspirations' element={<MyInspirations/>} />
+        <Route path='/MyCurrentOutfit' element={<MyCurrentOutfit/>} />
+        <Route path='/MyInspirationDetails' element={<MyInspirationDetails/>} />
       </Routes>
     </Router>
   );
