@@ -107,7 +107,7 @@ function MyCurrentOutfit(){
                         <button onClick={handleDeleteOutfit}><IoMdTrash color="red" size="30" /></button>
                     </>
                 ) : (
-                    <div>
+                    <div className='outfit-details-container'>
                         <p>No tenés ningún outfit publicado</p>
                         <Link to="/UploadOutfit">
                             <button>Subir outfit</button>
