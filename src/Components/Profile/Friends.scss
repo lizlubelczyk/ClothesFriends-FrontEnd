@@ -1,0 +1,151 @@
+.friends-container{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        padding: 20px;
+    
+        .back-button {
+          position: absolute;
+          left: 20px;
+          background-color: transparent;
+          border-width: 0px;
+          border-radius: 100px;
+    
+          &:hover {
+            background-color: #c9ada7;
+          }
+        }
+    
+        .title {
+          margin: 0;
+          color: #fff;
+          font-size: 30px;
+        }
+      }
+      .friends-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+    
+        .friend {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #2d2d2d;
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          width: 100%;
+    
+          .friend-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+    
+          .friend-username {
+            flex: 1;
+            margin-right: 10px;
+          }
+    
+          .friend-button {
+            background-color: #4a4e69;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            padding: 8px 15px;
+            &:hover {
+              background-color: #c9ada7;
+            }
+          }
+        }
+      }
+    
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+      }
+    
+      .modal-content {
+        background-color: #4a4e69;
+        padding: 20px;
+        border-radius: 4px;
+        width: 300px;
+        text-align: center;
+        border-radius: 20px;
+    
+        h2 {
+          color: white;
+          margin-bottom: 20px;
+        }
+    
+        button {
+          background-color: black;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          margin: 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          font-weight: bold;
+    
+          &:hover {
+            background-color: #c9ada7;
+          }
+        }
+      }
+    
+      .barra-fija {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1d1d1d;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        z-index: 999;
+    
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          color: white;
+    
+          svg {
+            color: white;
+          }
+    
+          &:hover {
+            color: #c9ada7;
+          }
+        }
+      }
+}

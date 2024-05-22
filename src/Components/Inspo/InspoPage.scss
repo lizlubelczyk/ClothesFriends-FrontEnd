@@ -1,0 +1,38 @@
+.inspo-page-container{
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    padding-top: 20px;
+
+    .barra-fija {
+        background-color: white;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        gap: 2px;
+        position: fixed;
+        bottom: 0;
+        margin-left: -14px;
+        height: 60px;
+        align-items: center;
+
+    
+        a {
+            text-decoration: none;
+            color: inherit;
+            
+        }
+    
+        a:hover {
+            color: inherit;
+        }
+    }
+
+}

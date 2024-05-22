@@ -25,8 +25,8 @@ function UploadClothingItem() {
 
 
   const categories = {
-    Tops: ["Buzo", "Sweater", "Campera", "Top", "Remera"],
-    Bottoms: ["Short", "Pollera", "Pantalón", "Vestidos", "Monos"],
+    Tops: ["Buzos", "Sweaters", "Camperas", "Tops", "Remeras"],
+    Bottoms: ["Shorts", "Polleras", "Pantalones", "Vestidos", "Monos"],
     Accesorios: ["Carteras", "Bijou", "Zapatos", "Cinturones", "Gorros"],
   };
 
