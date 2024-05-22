@@ -15,6 +15,7 @@ function Profile() {
     const [user, setUser] = useState('');
     const navigate = useNavigate();
     const [hasOutfit, setHasOutfit] = useState(false);
+    const [friendCount, setFriendCount] = useState(0);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -53,17 +54,29 @@ function Profile() {
             }
         };
 
+        const countFriends = async () => {
+            const token = localStorage.getItem('token');
+            const userId = localStorage.getItem('userId');
+            const response = await fetch(`http://localhost:8080/api/user/get/${userId}/friendCount`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const result = await response.json();
+                console.log(result);
+                setFriendCount(result);
+            }
+        };
+
+            
+
         fetchUser();
         checkOutfit();
+        countFriends();
     }, []);
-
-    const handleFeedClick = () => {
-        navigate('/MyItems');
-    };
-
-    const handleInspiracionClick = () => {
-        navigate('/Inspiracion');
-    };
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -92,8 +105,9 @@ function Profile() {
                     <img src={user.profilePicture || pfp} alt="" />
                 </Link>
                 <div className="botones-seguidores">
-                    <button className="seguidores">n seguidores</button>
-                    <button className="seguidos">n seguidos</button>
+                    <Link to="/MyFriends">
+                        <button className="seguidores">{friendCount} amigos</button>
+                    </Link>
                 </div>
             </div>
 
@@ -120,16 +134,16 @@ function Profile() {
 
             <div className="barra-fija">
                 <button className="notifications">
-                    <IoNotifications />
+                    <IoNotifications size={30} />
                 </button>
                 <button className="inicio">
-                    <FaSquarePollVertical />
+                    <FaSquarePollVertical size={30} />
                 </button>
-                <button className="inspo">
-                    <IoSparkles />
-                </button>
+                <Link to="/InspoPage" className="inspo">
+                    <IoSparkles size={30} />
+                </Link>
                 <button className="profile">
-                    <FaUserAlt />
+                    <FaUserAlt size={30} />
                 </button>
             </div>
         </div>
