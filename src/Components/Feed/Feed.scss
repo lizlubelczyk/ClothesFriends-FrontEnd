@@ -1,0 +1,148 @@
+.container {
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start;
+    position: relative;
+    padding-top: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-bottom: 80px; /* Add padding at the bottom to create space for the fixed barra-fija */
+
+    .publicacion {
+        background-color: #4a4e69; /* Color of the square */
+        width: calc(100% - 40px); /* Adjust width of the square */
+        max-width: 600px; /* Limit max width */
+        margin: 20px auto; /* Center square with 20px margin on top and bottom */
+        padding: 15px;
+        border-radius: 10px;
+        position: relative; /* Ensure relative position for z-index */
+        z-index: 1; /* Ensure that publication is below subir-post and barra-fija */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text horizontally */
+
+        .perfil-usuario {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            span {
+                font-weight: bold;
+                color: white;
+                font-size: 20px;
+            }
+        }
+
+        img {
+            max-width: 100%; /* Ensures image does not overflow */
+            height: auto;
+            border-radius: 5px;
+            display: block; /* Ensures that the image is block-level */
+            margin-bottom: 10px; /* Space between image and buttons */
+        }
+
+        .descripcion {
+            color: white;
+            margin-bottom: 10px;
+            white-space: pre-wrap; /* Allow text to wrap */
+        }
+
+        .botones {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center buttons horizontally */
+
+            button {
+                background-color: #D9D9D9;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 40px;
+                margin: 0 5px; /* Adjust spacing between buttons */
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &.liked {
+                    background-color: red;
+                }
+
+                &.disliked {
+                    background-color: blue;
+                }
+
+                &:hover {
+                    background-color: lightgrey;
+                }
+
+                &.comentarios {
+                    background-color: #D9D9D9;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 40px;
+                    margin: 0 5px; /* Adjust spacing between buttons */
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: lightgrey;
+                    }
+                }
+            }
+        }
+    }
+
+    .subir-post {
+        width: 75px;
+        height: 75px;
+        position: fixed;
+        bottom: 120px;
+        right: 20px;
+        background-color: #D9D9D9;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        z-index: 3; /* Ensure it's above other elements */
+
+        &:hover {
+            background-color: lightgrey;
+        }
+    }
+
+    .barra-fija {
+        background-color: white;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        gap: 2px;
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        z-index: 2; /* Ensure it's above the content but below subir-post */
+
+        button {
+            font-size: 35px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: none;
+            margin-top: 10px;
+
+            &:hover {
+                background-color: darkslategrey;
+            }
+        }
+    }
+}

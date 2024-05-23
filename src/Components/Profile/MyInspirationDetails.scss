@@ -43,6 +43,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      user-fullname {
+        text-align: center;
+        margin-bottom: 20px;
+
+        .user-fullname h2 {
+          font-size: 1.5em;
+          color: #333; // Adjust color as needed
+      }
+      }
   
       img {
         max-width: 100%;
