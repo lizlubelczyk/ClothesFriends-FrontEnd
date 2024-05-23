@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { IoIosArrowBack } from "react-icons/io";
 import "./UploadClothingItem.scss";
 import withAuth from "../../extras/withAuth";
-import {FaCamera, FaPen} from "react-icons/fa"; // Import the additional icon
+import { FaCamera, FaPen } from "react-icons/fa"; // Import the additional icon
 
-
-function UploadInspiration(){
+function UploadInspiration() {
     const [selectedFile, setSelectedFile] = useState();
     const [imagePreview, setImagePreview] = useState(null);
     const [description, setDescription] = useState("");
     const [uploadSuccess, setUploadSuccess] = useState(false); // Upload success state
     const [image, setImage] = useState(null); // Image file
-
-
+    
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0]; // Get the selected image
@@ -33,8 +32,6 @@ function UploadInspiration(){
         }
       };
       
-      
-
       const handleSubmit = async (event) => {
         event.preventDefault();
         const token = localStorage.getItem("token");
@@ -45,7 +42,7 @@ function UploadInspiration(){
         formData.append("image", image);
         formData.append("userId", userId);
 
-        const response = await fetch(`http://localhost:8080/api/inspiration/${userId}/create`,{
+        const response = await fetch(`http://localhost:8080/api/inspiration/${userId}/create`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -53,23 +50,19 @@ function UploadInspiration(){
             body: formData
         });
 
-        if(response.ok){
+        if (response.ok) {
             console.log("Inspiration uploaded successfully");
             setUploadSuccess(true);
         } else {
             console.error('Error creating clothing item:', await response.text());
-                
         }
     };
 
-    return(
-
+    return (
         <div className="uploadclothingitem-container">
             <div className="header">
-                <button className="back-button">
-                <Link to="/Uploads">
+                <button className="back-button" onClick={() => navigate(-1)}> {/* Use navigate(-1) to go back */}
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Subir a mí perfil</h1>
             </div>
@@ -93,40 +86,34 @@ function UploadInspiration(){
                     {/* Image preview */}
                     {imagePreview && (
                         <img
-                        src={imagePreview}
-                        alt="Preview"
-                        className="image-preview"
+                            src={imagePreview}
+                            alt="Preview"
+                            className="image-preview"
                         />
                     )}
                 </div>
                 <div className="input-descripción">
-                    <FaPen size={20} className="icon" strokewidth={5} />
+                    <FaPen size={20} className="icon" strokeWidth={5} />
                     <textarea
                         className="field"
                         type="text"
                         placeholder="Descripción de la Prenda"
-                        value = {description}
-                        onChange={(e)=> setDescription(e.target.value)}
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
 
                 <button className="subir-button" onClick={handleSubmit}>Subir Prenda</button>
+            </div>
 
-                </div>
-
-                {uploadSuccess && (
+            {uploadSuccess && (
                 <div className="upload-success-square">
                     <p>Item uploaded successfully!</p>
-                    <Link to="/Uploads" className="close-button">
-                      Close
-                    </Link>
+                    <button onClick={() => navigate(-1)} className="close-button">Close</button> {/* Use navigate(-1) to go back */}
                 </div>
             )}
-
-                
-            </div>
-        
-    )
-
+        </div>
+    );
 }
-export default withAuth(UploadInspiration)
+
+export default withAuth(UploadInspiration);

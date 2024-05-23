@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 
 import Login from './Components/Login-Signup/Login.jsx';
 import Signup from './Components/Login-Signup/Signup.jsx';
-import MyFeed from './Components/Feed/Myfeed.jsx';
 import Profile from './Components/Profile/Profile.jsx';
 import Edit from './Components/Profile/Edit.jsx';
 import Uploads from './Components/Profile/Uploads/Uploads.jsx';
@@ -30,6 +29,8 @@ import OtherInspirations from './Components/OtherUser/OtherInspirations.jsx';
 import OtherCurrentOutfit from './Components/OtherUser/OtherCurrentOutfit.jsx';
 import MyFriends from './Components/Profile/MyFriends.jsx';
 import OtherFriends from './Components/OtherUser/OtherFriends.jsx';
+import OtherInspirationDetails from './Components/OtherUser/OtherInspirationDetails.jsx';
+import Feed from './Components/Feed/Feed.jsx';
 
 function App() {
   return (
@@ -37,7 +38,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/Signup' element={<Signup />} />
-        <Route path='/Myfeed' element={<MyFeed />} />
         <Route path='/Profile' element={<Profile />} />
         <Route path='/Edit' element={<Edit />} />
         <Route path='/Uploads' element={<Uploads />} />
@@ -64,6 +64,8 @@ function App() {
         <Route path='/OtherCurrentOutfit' element={<OtherCurrentOutfit/>} />
         <Route path='/MyFriends' element={<MyFriends/>} />
         <Route path='/OtherFriends' element={<OtherFriends/>} />
+        <Route path='/OtherInspirationDetails' element={<OtherInspirationDetails/>} />
+        <Route path='/Feed' element={<Feed/>} />
       </Routes>
     </Router>
   );

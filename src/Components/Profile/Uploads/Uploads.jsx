@@ -1,21 +1,17 @@
-import React from "react"
-import "./Uploads.scss"
+import React from "react";
+import "./Uploads.scss";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Import useNavigate
 import withAuth from "../../extras/withAuth";
 
+function Uploads() {
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
-
-
-function Uploads(){
-
-    return(
+    return (
         <div className="uploads-container">
             <div className="header">
-                <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/profile">
+                <button className="back-button" onClick={() => navigate(-1)}> {/* Navigate back to previous page */}
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Subir a mí perfil</h1>
             </div>
@@ -30,14 +26,8 @@ function Uploads(){
                     <button className="profile-button">INSPIRACIÓN</button>
                 </Link> 
             </div>
-
         </div>
-        
-
-
-    )
+    );
 }
 
-export default withAuth(Uploads)
-
-
+export default withAuth(Uploads);

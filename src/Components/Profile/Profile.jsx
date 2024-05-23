@@ -136,14 +136,16 @@ function Profile() {
                 <button className="notifications">
                     <IoNotifications size={30} />
                 </button>
-                <button className="inicio">
-                    <FaSquarePollVertical size={30} />
-                </button>
+                <Link to="/Feed" >
+                    <button className="inicio">
+                        <FaSquarePollVertical size={30} />
+                    </button>
+                </Link>
                 <Link to="/InspoPage" className="inspo">
                     <IoSparkles size={30} />
                 </Link>
                 <button className="profile">
-                    <FaUserAlt size={30} />
+                    <FaUserAlt size={30} color='gray' />
                 </button>
             </div>
         </div>

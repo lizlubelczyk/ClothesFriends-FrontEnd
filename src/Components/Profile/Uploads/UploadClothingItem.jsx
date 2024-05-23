@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { IoIosArrowBack } from "react-icons/io";
 import { TbHanger } from "react-icons/tb";
-
 import "./UploadClothingItem.scss";
 import withAuth from "../../extras/withAuth";
-import { FaTshirt, FaCamera, FaPen, FaHandHoldingHeart } from "react-icons/fa"; // Import the additional icon
-
-
+import { FaTshirt, FaCamera, FaPen, FaHandHoldingHeart } from "react-icons/fa";
 
 function UploadClothingItem() {
   const [selectedCategory, setSelectedCategory] = useState(""); // Tracks the selected main category
@@ -23,6 +20,7 @@ function UploadClothingItem() {
   const [imagePreview, setImagePreview] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false); // Upload success state
 
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const categories = {
     Tops: ["Buzos", "Sweaters", "Camperas", "Tops", "Remeras"],
@@ -62,18 +60,6 @@ function UploadClothingItem() {
       reader.readAsDataURL(file);
     }
   };
-  
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setImagePreview(reader.result);
-        };
-        reader.readAsDataURL(file);
-    }
-  };
 
   const closeMainMenu = () => {
     setShowMainMenu(false); // Hide the main category menu
@@ -83,12 +69,10 @@ function UploadClothingItem() {
     setShowSubcategoryMenu(false); // Hides the subcategory menu
   };
 
-
-
   const toggleAvailability = () => {
     setIsAvailable(!isAvailable); // Toggle the availability state
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -119,21 +103,18 @@ function UploadClothingItem() {
     }
   };
 
-
   return (
     <div className="uploadclothingitem-container">
       <div className="header">
-        <button className="back-button">
-          <Link to="/Uploads">
-            <IoIosArrowBack color="white" size="30" />
-          </Link>
+        <button className="back-button" onClick={() => navigate(-1)}> {/* Use navigate(-1) to go back */}
+          <IoIosArrowBack color="white" size="30" />
         </button>
         <h1 className="title">Subir a mí perfil</h1>
       </div>
 
       <div className="square1">
         <div className="input">
-          <TbHanger size={22} className="icon" strokewidth={5} />
+          <TbHanger size={22} className="icon" strokeWidth={5} />
           <input
             className="field"
             type="text"
@@ -216,7 +197,7 @@ function UploadClothingItem() {
         </div>
 
         <div className="input-descripción">
-          <FaPen size={20} className="icon" strokewidth={5} />
+          <FaPen size={20} className="icon" strokeWidth={5} />
           <textarea
             className="field"
             type="text"
@@ -244,19 +225,15 @@ function UploadClothingItem() {
           </label>
         </div>
 
-
-
         <button className="subir-button" onClick={handleSubmit}>Subir Prenda</button>
       </div>
 
       {uploadSuccess && (
-                <div className="upload-success-square">
-                    <p>Item uploaded successfully!</p>
-                    <Link to="/Uploads" className="close-button">
-                      Close
-                    </Link>
-                </div>
-            )}
+        <div className="upload-success-square">
+          <p>Item uploaded successfully!</p>
+          <button onClick={() => navigate(-1)} className="close-button">Close</button> {/* Use navigate(-1) to go back */}
+        </div>
+      )}
     </div>
   );
 }
