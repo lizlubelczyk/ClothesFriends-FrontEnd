@@ -116,7 +116,9 @@ function Profile() {
             </div>
 
             <button className="posts-likeados">
-                <FaHeart />
+                <Link to="/LikedInspo">
+                    <FaHeart />
+                </Link>
             </button>
 
             <Link to="/MyItems" className="square1">

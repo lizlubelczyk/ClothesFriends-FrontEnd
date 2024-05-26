@@ -128,13 +128,16 @@ function Edit() {
         formData.append("profilePicture", file);
     
         try {
-            const response = await fetch(`http://localhost:8080/api/user/me/${userId}/profile-picture`, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                },
-                body: formData,
-            });
+            const response = await fetch(
+                `http://localhost:8080/api/user/me/${userId}/profile-picture`,
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: formData,
+                }
+            );
     
             if (response.ok) {
                 const updatedUser = await response.json();
@@ -146,6 +149,7 @@ function Edit() {
             console.error("An error occurred while uploading the profile picture:", error);
         }
     };
+    
       
 
       
