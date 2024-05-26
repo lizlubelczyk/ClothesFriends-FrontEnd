@@ -34,6 +34,19 @@
   }
 
   .outfit-details {
+    }
+
+    .outfit-details-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .outfit-details {
+      display: flex;
+      justify-content: center; /* Centra horizontalmente */
+      align-items: center; /* Centra verticalmente */
+      flex-direction: column;
+      position: relative; /* Add position relative to the container */
       background-color: gray;
       border-radius: 20px;
       padding: 20px;
@@ -44,11 +57,12 @@
       flex-direction: column;
       align-items: center;
 
+
       img {
           max-width: 100%;
           border-radius: 20px;
       }
-
+  
       .description-square {
           background-color: white;
           color: gray;
@@ -62,7 +76,7 @@
               margin: 0;
           }
       }
-  }
+    }
 
   .botones {
       display: flex;

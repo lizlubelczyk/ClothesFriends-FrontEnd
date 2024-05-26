@@ -200,7 +200,7 @@ function MyCurrentOutfit() {
                         )}
                     </>
                 ) : (
-                    <div>
+                    <div className='outfit-details-container'>
                         <p>No tenés ningún outfit publicado</p>
                         <Link to="/UploadOutfit">
                             <button>Subir outfit</button>
