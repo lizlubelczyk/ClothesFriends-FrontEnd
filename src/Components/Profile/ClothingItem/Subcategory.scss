@@ -35,25 +35,55 @@
 
     .clothing-items-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Use auto-fit instead of auto-fill */
-        grid-auto-rows: 200px;
+        grid-template-columns: repeat(2, 1fr); /* Use auto-fit instead of auto-fill */
+        grid-auto-rows: auto;
         grid-gap: 20px;
+        max-width: 100%;
+        overflow-y: scroll;
+
 
         .clothing-item {
             width: 100%;
             max-width: 200px; /* Limit the width of each item */
-            height: 100%;
-            margin: 10px;
+            height: 250px;
             display: flex;
             justify-content: center;
-            align-items: center;
             border-radius: 10px;
+            overflow: hidden;
+    
 
             img {
                 max-width: 100%;
-                max-height: 100%;
+                max-height: auto;
                 border-radius: 10px;
+                object-fit: cover;
             }
+        }
+    }
+
+    .barra-fija {
+        background-color: white;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        gap: 2px;
+        position: fixed;
+        bottom: 0;
+        margin-left: -14px;
+        height: 60px;
+        align-items: center;
+
+    
+        a {
+            text-decoration: none;
+            color: inherit;
+            
+        }
+    
+        a:hover {
+            color: inherit;
         }
     }
 }

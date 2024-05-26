@@ -18,9 +18,7 @@ function MyAccesories(){
                 <h1 className="title">Tops</h1>
             </div>
             <div className="buttons-container">
-                <Link to="/MyTops">
-                    <button className="profile-button">REMERAS</button>
-                </Link>                
+               
                 <button className="profile-button">ZAPATOS</button>
                 <button className="profile-button">CARTERAS</button>
                 <button className="profile-button">BIJOU</button>
