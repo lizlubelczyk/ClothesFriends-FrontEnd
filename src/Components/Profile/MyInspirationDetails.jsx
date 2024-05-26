@@ -129,7 +129,7 @@ function MyInspirationDetails() {
     if (!inspiration) {
         return <div>No inspiration found</div>;
     }
-
+    console.log(typeof inspiration.image)
     return (
         <div className="my-inspiration-container"> 
             <div className="header">
@@ -143,7 +143,7 @@ function MyInspirationDetails() {
             <div className="inspiration-details">
                 <div className="outfit-details-container">
                     <div className="inspiration-details">
-                        <img src={inspiration.image} alt="Outfit" />
+                        <img src={inspiration.image.split("public")[1]} alt="Outfit" />
                         <div className="description-square">
                             <p>{inspiration.description}</p>
                         </div>
