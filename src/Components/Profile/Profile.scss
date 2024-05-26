@@ -73,34 +73,35 @@
     .perfil {
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        margin-right: 80px;
         margin-top: 20px;
-    }
-
-    .pfp {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 130px;
-        height: 130px;
-        position: relative;
-        overflow: hidden;
-
-        &.has-outfit {
-            border: 5px solid #C9ADA7; // Gold border, adjust the color as needed
-            border-radius: 50%;
-        }
-
-        img {
+        .pfp {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             width: 130px;
             height: 130px;
-            object-fit: cover;
-            -webkit-clip-path: circle(50%);
-            clip-path: circle(50%);
+            position: relative;
+            overflow: hidden;
+    
+            &.has-outfit {
+                border: 5px solid #C9ADA7; // Gold border, adjust the color as needed
+                border-radius: 50%;
+            }
+    
+            img {
+                width: 130px;
+                height: 130px;
+                object-fit: cover;
+                -webkit-clip-path: circle(50%);
+                clip-path: circle(50%);
+            }
         }
     }
+
+   
 
     .botones-seguidores {
         display: flex;
