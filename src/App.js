@@ -31,6 +31,7 @@ import MyFriends from './Components/Profile/MyFriends.jsx';
 import OtherFriends from './Components/OtherUser/OtherFriends.jsx';
 import OtherInspirationDetails from './Components/OtherUser/OtherInspirationDetails.jsx';
 import Feed from './Components/Feed/Feed.jsx';
+import LikedInspo from './Components/Profile/LikedInspo.jsx';
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
         <Route path='/OtherFriends' element={<OtherFriends/>} />
         <Route path='/OtherInspirationDetails' element={<OtherInspirationDetails/>} />
         <Route path='/Feed' element={<Feed/>} />
+        <Route path='/LikedInspo' element={<LikedInspo/>} />
       </Routes>
     </Router>
   );

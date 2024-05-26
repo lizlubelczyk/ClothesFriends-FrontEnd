@@ -3,15 +3,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack, IoMdTrash } from "react-icons/io";
 import withAuth from "../extras/withAuth";
 import "./MyInspirationDetails.scss";
+import { FaHeart, FaComment } from "react-icons/fa";
+
 
 function MyInspirationDetails() {
     const [inspiration, setInspiration] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const[comments, setComments] = useState([]);
+    const[commentText, setCommentText] = useState("");
+    const[commentsVisible, setCommentsVisible] = useState(false);
+    const[likes, setLikes] = useState(0);
+    const userId = parseInt(localStorage.getItem('userId'));
+
 
     useEffect(() => {
         fetchInspiration();
+        getLikes();
+        fetchComments();
     }, []);
 
     async function fetchInspiration() {
@@ -38,6 +48,51 @@ function MyInspirationDetails() {
             setLoading(false);
         }
     }
+
+    async function getLikes() {
+        const token = localStorage.getItem('token');
+        const inspirationId = localStorage.getItem('selectedInspirationId');
+        try {
+            const response = await fetch(`http://localhost:8080/api/inspiration/get/${inspirationId}/likes`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setLikes(data); // Update 'likes' state with the number of likes
+            } else {
+                console.error('Failed to fetch likes:', response.statusText);
+            }
+        } catch (error) {
+            console.error('An error occurred while fetching likes:', error);
+        }
+    }
+
+    async function fetchComments() {
+        try {
+            const token = localStorage.getItem('token');
+            const inspirationId = localStorage.getItem('selectedInspirationId');
+
+            const response = await fetch(`http://localhost:8080/api/inspiration/${inspirationId}/getComments`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setComments(data);
+            } else {
+                console.error("Error fetching comments");
+            }
+        } catch (error) {
+            console.error("An error occurred while fetching comments:", error);
+        }
+    }
+
+
 
     const handleDeleteInspiration = () => {
         setShowDeleteModal(true);
@@ -92,11 +147,44 @@ function MyInspirationDetails() {
                         <div className="description-square">
                             <p>{inspiration.description}</p>
                         </div>
+                        <div className="botones">
+                            <button                            >
+                                <FaHeart />
+                                <span>{likes}</span>
+                            </button>
+                            <button onClick={() => setCommentsVisible(!commentsVisible)}>
+                                <FaComment />
+                                <span>{comments.length}</span>
+                            </button>
+                            <button onClick={handleDeleteInspiration}>
+                                <IoMdTrash />
+                            </button>
+
+                        </div>
+                        {commentsVisible && (
+                            <div className="comentarios">
+                                {comments.map(comment => (
+                                    <div key={comment.commentId} className="comentario">
+                                        <img
+                                            src={comment.profilePicture}
+                                            alt="Profile"
+                                        />
+                                        <div className="comentario-detalle">
+                                            <div className="usuario">
+                                                <span>{comment.username}</span>
+                                            </div>
+                                            <div className="texto">
+                                                <p>{comment.comment}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
                     </div>
                 </div>
-                <button onClick={handleDeleteInspiration}>
-                    <IoMdTrash color="red" size="30" />
-                </button>
+                
             </div>
 
             {showDeleteModal && (
