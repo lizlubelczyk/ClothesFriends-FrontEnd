@@ -166,7 +166,7 @@ function Edit() {
             </div>
             <div className="profile-picture-container">
                 <img className="profile-picture" src={user.profilePicture} alt="Profile" />
-                <input type="file" className="edit-photo-text" onChange={handleFileChange} /> // Self-closing
+                <input type="file" className="#file-upload-button" onChange={handleFileChange} /> // Self-closing
             </div>
             <div className="edit-form" >
                 <div className="input"> 

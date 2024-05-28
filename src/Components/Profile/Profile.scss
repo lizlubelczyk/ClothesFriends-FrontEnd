@@ -15,10 +15,10 @@
         justify-content: left;
         margin-bottom: 10px;
         text-align: center;
-        margin-left: 30px;
+        margin-left: -220px;
         display: flex;
         align-items: center;
-        font-size: 30px;
+        font-size: 25px;
 
         .user-icon {
             margin-right: 10px; // Adjust as needed
@@ -73,34 +73,35 @@
     .perfil {
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        margin-right: 80px;
         margin-top: 20px;
-    }
-
-    .pfp {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 130px;
-        height: 130px;
-        position: relative;
-        overflow: hidden;
-
-        &.has-outfit {
-            border: 5px solid #C9ADA7; // Gold border, adjust the color as needed
-            border-radius: 50%;
-        }
-
-        img {
+        .pfp {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             width: 130px;
             height: 130px;
-            object-fit: cover;
-            -webkit-clip-path: circle(50%);
-            clip-path: circle(50%);
+            position: relative;
+            overflow: hidden;
+    
+            &.has-outfit {
+                border: 5px solid #C9ADA7; // Gold border, adjust the color as needed
+                border-radius: 50%;
+            }
+    
+            img {
+                width: 130px;
+                height: 130px;
+                object-fit: cover;
+                -webkit-clip-path: circle(50%);
+                clip-path: circle(50%);
+            }
         }
     }
+
+   
 
     .botones-seguidores {
         display: flex;
@@ -121,10 +122,10 @@
     }
 
     .full-name {
-        margin-left: 30px;
+        margin-left: -210px;
         margin-top: -10px;
         margin-bottom: 20px;
-        color: white;
+        color: rgb(214, 145, 224);
         font-size: 24px;
         font-weight: bold;
     }
@@ -136,7 +137,7 @@
         margin-top: 5px;
         align-self: flex-end;
         background-color: #D9D9D9;
-        margin-right: 60px;
+        margin-right: 35px;
         margin-bottom: 30px;
         border-color: #fff;
     }
@@ -174,7 +175,7 @@
             margin-left: 0px;
             left: 0px;
             font-size: 40px;
-            margin-right: 180px;
+            margin-right: 198px;
             font-weight: bold;
             text-decoration: none;
         }
@@ -185,7 +186,7 @@
             margin-left: 0px;
             left: 0px;
             font-size: 40px;
-            margin-right: 50px; // Reduce margin-right to fit text within the square
+            margin-right: 100px; // Reduce margin-right to fit text within the square
             font-weight: bold;
             text-decoration: none;
         }
@@ -202,6 +203,8 @@
         cursor: pointer;
         border-radius: 20px;
         z-index: 1;
+        margin-right: 18px;
+        
 
         a {
             display: flex;
