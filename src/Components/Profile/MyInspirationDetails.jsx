@@ -143,7 +143,7 @@ function MyInspirationDetails() {
             <div className="inspiration-details">
                 <div className="outfit-details-container">
                     <div className="inspiration-details">
-                        <img src={inspiration.image.split("public/")[1]} alt="Outfit" />
+                        <img src={inspiration.image} alt="Outfit" />
                         <div className="description-square">
                             <p>{inspiration.description}</p>
                         </div>

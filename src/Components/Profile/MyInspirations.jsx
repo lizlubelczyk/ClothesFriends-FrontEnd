@@ -54,7 +54,7 @@ function MyInspirations(){
             <div className="clothing-items-container">
                 {inspirations.map((inspiration) => (
                 <div key={inspiration.id} className="clothing-item" onClick={() => handleClick(inspiration.inspirationId)}>
-                    <img src={inspiration.image.split("public")[1]} alt={inspiration.name} />
+                    <img src={inspiration.image} alt={inspiration.name} />
                 </div>
                 ))}
             </div>
