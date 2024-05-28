@@ -32,9 +32,9 @@ import OtherFriends from './Components/OtherUser/OtherFriends.jsx';
 import OtherInspirationDetails from './Components/OtherUser/OtherInspirationDetails.jsx';
 import Feed from './Components/Feed/Feed.jsx';
 import LikedInspo from './Components/Profile/LikedInspo.jsx';
-import notifications from './Components/notifications/NotificationScreen.jsx';
 import NotificationScreen from './Components/notifications/NotificationScreen.jsx';
 import BorrowRequest from './Components/notifications/BorrowRequest.jsx';
+import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDetails.jsx';
 
 function App() {
   return (
@@ -73,6 +73,7 @@ function App() {
         <Route path='/LikedInspo' element={<LikedInspo/>} />
         <Route path='/NotificationScreen' element={<NotificationScreen/>} />
         <Route path='/BorrowRequest' element={<BorrowRequest/>} />
+        <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
       </Routes>
     </Router>
   );

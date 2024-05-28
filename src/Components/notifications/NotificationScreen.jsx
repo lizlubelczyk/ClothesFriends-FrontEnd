@@ -71,9 +71,11 @@ function NotificationScreen() {
                 <Link to="/InspoPage" className="inspo">
                     <IoSparkles size={30} />
                 </Link>
-                <button className="profile">
-                    <FaUserAlt size={30} color='gray' />
-                </button>
+                <Link to= "/Profile" >
+                    <button className="profile">
+                        <FaUserAlt size={30} color='black' />
+                    </button>
+                </Link>
             </div>
         </div>
         

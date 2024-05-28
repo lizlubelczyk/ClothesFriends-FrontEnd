@@ -66,7 +66,7 @@ function OtherSubcategory(){
         // Save clothing item ID in local storage
         localStorage.setItem("selectedClothingItemId", clothingItemId);
         // Navigate to clothing item details page
-        navigate("/MyClothingItemDetails"); // Adjust route as per your application
+        navigate("/OtherClothingItemDetails"); // Adjust route as per your application
     }
 
     return (
