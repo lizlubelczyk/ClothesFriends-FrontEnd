@@ -1,0 +1,90 @@
+.borrow-request-screen {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #191818;
+    height: 100vh;
+  
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .back-button{
+        position: absolute;
+        left: 20px;
+        background-color: transparent;
+        border-width: 0px;
+        border-radius: 100px;
+        &:hover {
+            background-color: #C9ADA7;
+          }
+
+    }
+  
+      .title {
+        margin-left: 35px;
+        color: #B06BA9;
+      }
+    }
+  
+    .borrow-request-list {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      
+    }
+  
+    .borrow-request {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+     
+  
+      .garment-photo {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+  
+      .borrow-request-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+  
+        .username {
+          font-weight: bold;
+          font-size: 24px;
+          color: #B06BA9;
+          margin-bottom: 10px;
+        }
+  
+        .borrow-request-actions {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+  
+          .action-icon {
+            font-size: 30px;
+            margin: 10px;
+            cursor: pointer;
+          }
+  
+          .accept {
+            color: green;
+          }
+  
+          .reject {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+  
