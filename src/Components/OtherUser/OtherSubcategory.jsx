@@ -41,7 +41,7 @@ function OtherSubcategory(){
       async function fetchClothingItems() {
         try {
             const token = localStorage.getItem('token'); // Retrieve the token from local storage
-            const userId = localStorage.getItem('userId'); // Retrieve the user ID from local storage
+            const userId = localStorage.getItem('searchedUserId'); // Retrieve the user ID from local storage
             const subcategory = localStorage.getItem('subcategory');
     
             // Fetch clothing items from backend
@@ -73,9 +73,9 @@ function OtherSubcategory(){
         <div className="subcategory-container">
           <div className="header">
             <button className="back-button">
-              <Link to="/MyItems">
-                <IoIosArrowBack color="white" size="30" />
-              </Link>
+              <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
+                </button>
             </button>
             <h1 className="title">{subcategory} de {fullName}</h1>
           </div>
