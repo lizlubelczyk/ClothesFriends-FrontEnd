@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Chats.scss";
 import withAuth from "../extras/withAuth";
 import { IoIosArrowBack } from "react-icons/io";
-import { BiMessageDetail } from "react-icons/bi";
 
 function Chats() {
     const [chats, setChats] = useState([]);
@@ -80,6 +79,8 @@ function Chats() {
                     <IoIosArrowBack />
                 </button>
                 <h1 className="title">Chats</h1>
+            </div>
+            <div className="toggle-switch-container">
                 <div className="toggle-switch">
                     <span className={`toggle-label ${showAllChats ? 'active' : ''}`}>Todos</span>
                     <label className="switch">

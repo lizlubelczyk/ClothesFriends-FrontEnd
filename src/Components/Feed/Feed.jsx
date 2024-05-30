@@ -294,18 +294,22 @@ function Feed() {
             </Link>
 
             <div className="barra-fija">
-                <button className="button">
-                    <IoNotifications />
+                <Link to= "/NotificationScreen">
+                <button className="notifications">
+                    <IoNotifications size={30} />
                 </button>
-                <Link to="/Feed" className="button">
-                    <FaSquarePollVertical size={30} color="gray" />
                 </Link>
-                <Link to="/InspoPage" className="button">
+                <Link to="/Feed" >
+                    <button className="inicio">
+                        <FaSquarePollVertical size={30} color="grey" />
+                    </button>
+                </Link>
+                <Link to="/InspoPage" className="inspo">
                     <IoSparkles size={30} />
                 </Link>
-                <Link to="/Profile" className="button">
+                <button className="profile">
                     <FaUserAlt size={30} />
-                </Link>
+                </button>
             </div>
         </div>
     );
