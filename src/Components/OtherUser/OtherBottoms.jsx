@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import withAuth from "../extras/withAuth";
 
-function MyBottoms(){
+function OtherBottoms(){
     const navigate = useNavigate();
     const [fullName, setFullName] = useState('');
 
@@ -41,6 +41,7 @@ function MyBottoms(){
   };
 
 
+
     return(
         <div className="uploads-container">
             <div className="header">
@@ -68,4 +69,4 @@ function MyBottoms(){
     )
 }
 
-export default withAuth(MyBottoms);
+export default withAuth(OtherBottoms);
