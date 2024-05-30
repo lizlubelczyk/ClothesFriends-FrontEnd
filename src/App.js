@@ -32,11 +32,11 @@ import OtherFriends from './Components/OtherUser/OtherFriends.jsx';
 import OtherInspirationDetails from './Components/OtherUser/OtherInspirationDetails.jsx';
 import Feed from './Components/Feed/Feed.jsx';
 import LikedInspo from './Components/Profile/LikedInspo.jsx';
-import notifications from './Components/notifications/NotificationScreen.jsx';
 import NotificationScreen from './Components/notifications/NotificationScreen.jsx';
 import BorrowRequest from './Components/notifications/BorrowRequest.jsx';
 import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDetails.jsx';
 import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
+
 function App() {
   return (
     <Router> {/* Use BrowserRouter */}
@@ -76,6 +76,7 @@ function App() {
         <Route path='/BorrowRequest' element={<BorrowRequest/>} />
         <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
         <Route path='/MySubcategory' element={<MySubcategory/>} />
+
       </Routes>
     </Router>
   );
