@@ -8,24 +8,30 @@
     .header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start; /* Ensure header content is aligned to the left */
         margin-bottom: 20px;
 
         .title {
             margin: 0;
+            margin-left: 10px; /* Space between the back button and title */
         }
 
         .back-button {
             background-color: transparent;
             border: none;
             cursor: pointer;
-            margin-right: 10px;
 
             svg {
                 color: white;
                 font-size: 24px;
             }
         }
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
 
         .toggle-switch {
             display: flex;

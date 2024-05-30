@@ -86,18 +86,18 @@ function NotificationScreen() {
         <div className="notification-screen">
             <div className="header">
                 <h1 className="title">Notificaciones</h1>
-                <div className="header-icons">
-                    <Link to="/Chats" className="icon-link">
-                        <IoIosChatbubbles size={30} color="#B06BA9" />
-                    </Link>
-                    <div className="toggle-switch">
-                        <span className={`toggle-label ${showAllNotifications ? 'active' : ''}`}>Todas</span>
-                        <label className="switch">
-                            <input type="checkbox" checked={showAllNotifications} onChange={handleToggleSwitch} />
-                            <span className="slider round"></span>
-                        </label>
-                        <span className={`toggle-label ${!showAllNotifications ? 'active' : ''}`}>No Vistas</span>
-                    </div>
+                <Link to="/Chats" className="icon-link">
+                    <IoIosChatbubbles size={30} color="#B06BA9" />
+                </Link>
+            </div>
+            <div className="toggle-switch-container">
+                <div className="toggle-switch">
+                    <span className={`toggle-label ${showAllNotifications ? 'active' : ''}`}>Todas</span>
+                    <label className="switch">
+                        <input type="checkbox" checked={showAllNotifications} onChange={handleToggleSwitch} />
+                        <span className="slider round"></span>
+                    </label>
+                    <span className={`toggle-label ${!showAllNotifications ? 'active' : ''}`}>No Vistas</span>
                 </div>
             </div>
             <div className="notification-list">
