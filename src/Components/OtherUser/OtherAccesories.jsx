@@ -48,12 +48,10 @@ function OtherAccesories(){
                     <IoIosArrowBack color="white" size="30" />
                 </Link>
                 </button>
-                <h1 className="title">Accesorios de {fullName}</h1>
+                <h1 className="title">Accesorios </h1>
             </div>
             <div className="buttons-container">
-                <Link to="/MyTops">
-                    <button className="profile-button">REMERAS</button>
-                </Link>                
+                                
                 <button className="profile-button" onClick={() => handleSubcategoryClick('Zapatos')}>ZAPATOS</button>
                 <button className="profile-button" onClick={() => handleSubcategoryClick('Carteras')}>CARTERAS</button>
                 <button className="profile-button" onClick={() => handleSubcategoryClick('Bijou')}>BIJOU</button>

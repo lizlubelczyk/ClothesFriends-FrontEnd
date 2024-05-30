@@ -37,6 +37,7 @@ import BorrowRequest from './Components/notifications/BorrowRequest.jsx';
 import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDetails.jsx';
 import Chat from './Components/notifications/Chat.jsx';
 import Chats from './Components/notifications/Chats.jsx';
+import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
 
 function App() {
   return (
@@ -78,6 +79,8 @@ function App() {
         <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
         <Route path='/Chat/:chatId' element={<Chat/>} />
         <Route path='/Chats' element={<Chats/>} />
+        <Route path='/MySubcategory' element={<MySubcategory/>} />
+
       </Routes>
     </Router>
   );

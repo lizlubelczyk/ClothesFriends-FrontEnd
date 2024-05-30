@@ -156,3 +156,4 @@ function OtherClothingItemDetails() {
 }
 
 export default withAuth(OtherClothingItemDetails);
+
