@@ -98,9 +98,9 @@ function InspoPage(){
             </Link>
 
             <div className="barra-fija">
-                <button className="button">
-                    <IoNotifications />
-                </button>
+                <Link to= "/NotificationScreen" className="button">
+                        <IoNotifications size={30} />
+                </Link>
                 <Link to="/Feed" className="button">
                     <FaSquarePollVertical size = {30} />
                 </Link>
