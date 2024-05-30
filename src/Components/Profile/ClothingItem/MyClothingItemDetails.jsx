@@ -132,12 +132,10 @@ function MyClothingItemDetails() {
                 </div>
             </div>
             {showDeleteModal && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>¿Eliminar prenda?</h2>
-                        <button onClick={handleConfirmDelete}>Sí</button>
-                        <button onClick={handleCancelDelete}>No</button>
-                    </div>
+                <div className="delete-modal">
+                  <p>Are you sure you want to delete this inspiration?</p>
+                    <button className="yes-button"onClick={handleConfirmDelete}>Yes</button>
+                    <button className="no-button"onClick={handleCancelDelete}>No</button>
                 </div>
             )}
         </div>

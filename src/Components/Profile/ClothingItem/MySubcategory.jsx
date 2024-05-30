@@ -1,10 +1,10 @@
 import React, { useState, useEffect }  from "react"
-import "../Profile/ClothingItem/Subcategory.scss";
+import "./Subcategory.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import withAuth from "../extras/withAuth";
+import withAuth from "../../extras/withAuth";
 
-function OtherSubcategory(){
+function MySubcategory(){
     const [clothingItems, setClothingItems] = useState([]);
     const navigate = useNavigate();
     const [fullName, setFullName] = useState('');
@@ -66,7 +66,7 @@ function OtherSubcategory(){
         // Save clothing item ID in local storage
         localStorage.setItem("selectedClothingItemId", clothingItemId);
         // Navigate to clothing item details page
-        navigate("/OtherClothingItemDetails"); // Adjust route as per your application
+        navigate("/MyClothingItemDetails"); // Adjust route as per your application
     }
 
     return (
@@ -77,7 +77,7 @@ function OtherSubcategory(){
                 <IoIosArrowBack color="white" size="30" />
               </Link>
             </button>
-            <h1 className="title">{subcategory} de {fullName}</h1>
+            <h1 className="title">{subcategory}</h1>
           </div>
           <div className="clothing-items-container">
             {clothingItems.map((item) => (
@@ -91,4 +91,4 @@ function OtherSubcategory(){
 
 }
 
-export default withAuth(OtherSubcategory);
+export default withAuth(MySubcategory);

@@ -17,7 +17,7 @@ function MyTopsSubcategory() {
         const userId = localStorage.getItem('userId'); // Retrieve the user ID from local storage
 
         // Fetch clothing items from backend
-        const response = await fetch(`http://localhost:8080/api/clothingItem/getAll/${userId}/Top`, {
+        const response = await fetch(`http://localhost:8080/api/clothingItem/getAll/${userId}/Tops`, {
             headers: {
                 'Authorization': `Bearer ${token}` // Include the token in the 'Authorization' header
             }
