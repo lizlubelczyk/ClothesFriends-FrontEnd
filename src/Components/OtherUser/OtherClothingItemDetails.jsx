@@ -77,31 +77,38 @@ function OtherClothingItemDetails() {
             setShowBorrowModal(true);
         }
     };
-
     const handleConfirmBorrow = async () => {
         const token = localStorage.getItem('token');
         const clothingItemId = localStorage.getItem('selectedClothingItemId');
         const userId = localStorage.getItem('userId');
-        const response = await fetch(`http://localhost:8080/api/clothingItem/${clothingItemId}/borrowrequest/${userId}`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        if (response.ok) {
-            // Show success message
-            alert("Outfit borrow request sent successfully!");
-            // Close modal
-            setShowBorrowModal(false);
-            // Refresh page
-            window.location.reload();
-        } else {
-            // Handle error
+        try {
+            const response = await fetch(`http://localhost:8080/api/clothingItem/${clothingItemId}/borrowrequest/${userId}`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                // Close modal
+                setShowBorrowModal(false);
+                // Clear message and message box
+                setMessage('');
+                setShowMessage(false);
+                // Update state to reflect request sent
+                setHasRequested(true);
+                // Show success message
+                alert("Outfit borrow request sent successfully!");
+            } else {
+                const errorMessage = await response.text(); // Get error message from response body
+                throw new Error(errorMessage); // Throw an error with the error message
+            }
+        } catch (error) {
+            console.error("Error sending borrow request:", error);
             alert("Failed to send request outfit");
         }
     };
-
+    
     const handleCancelBorrow = () => {
         setShowBorrowModal(false);
     };

@@ -72,13 +72,13 @@
                 font-weight: bold;
                 white-space: pre-wrap; /* Permite que el texto se ajuste a varias líneas */
                 word-wrap: break-word; 
-                p{
+                
+                p {
                     margin: 0;
                     line-height: 1.5;
                 }
-                
-
             }
+
             button {
                 background-color: transparent;
                 border: none;
@@ -86,9 +86,9 @@
                 margin-top: 10px;
           
                 svg {
-                  color: red;
+                    color: red;
                 }
-              }
+            }
         }
     }
 
@@ -207,4 +207,76 @@
     .delete-modal button:hover {
         background-color: #666666; /* Cambia el color de fondo al pasar el mouse para ambos botones */
     }
+
+    .upload-success-square {
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+        color: white; /* Texto en blanco */
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+
+        .close-button {
+            margin-top: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+
+            h2 {
+                margin-bottom: 20px;
+            }
+
+            button {
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin: 0 10px;
+            }
+
+            button:first-child {
+                background-color: #38f597;
+                color: #fff;
+            }
+
+            button:last-child {
+                background-color: #f30d0d;
+                color: #fff;
+            }
+
+            button:hover {
+                background-color: #666666;
+            }
+        }
+    }
+    
+    
 }
