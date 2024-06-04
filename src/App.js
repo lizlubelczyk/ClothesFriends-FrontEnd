@@ -39,6 +39,7 @@ import Chat from './Components/notifications/Chat.jsx';
 import Chats from './Components/notifications/Chats.jsx';
 import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
 
+
 function App() {
   return (
     <Router> {/* Use BrowserRouter */}
@@ -80,6 +81,7 @@ function App() {
         <Route path='/Chat/:chatId' element={<Chat/>} />
         <Route path='/Chats' element={<Chats/>} />
         <Route path='/MySubcategory' element={<MySubcategory/>} />
+       
 
       </Routes>
     </Router>

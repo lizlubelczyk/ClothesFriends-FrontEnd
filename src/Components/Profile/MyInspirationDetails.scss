@@ -84,7 +84,6 @@
   
     .inspiration-details {
       background-color: gray;
-
       margin: 0 auto;
       margin-top: 10%;
       border-radius: 20px;
@@ -93,22 +92,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      user-fullname {
+    
+      .user-fullname {
         text-align: center;
         margin-bottom: 20px;
-
-        .user-fullname h2 {
+    
+        h2 {
           font-size: 1.5em;
           color: #333; // Adjust color as needed
+        }
       }
-      }
-  
+    
       img {
-        max-width: 350px;
+        max-width: 100%; // Ensure the image fits within the container
+        max-height: 350px; // Optional: constrain the height to avoid overflow
+        width: auto; // Maintain aspect ratio
+        height: auto; // Maintain aspect ratio
         border-radius: 20px;
+        object-fit: contain; // Ensure the image does not stretch
       }
-  
+    
       .description-square {
         background-color: white;
         color: rgb(14, 13, 13);
@@ -119,61 +122,59 @@
         margin-top: 10px;
         margin-bottom: 15px;
         width: 90%;
-  
+    
         p {
           margin: 0;
-          font-weight: b;
+          font-weight: bold;
         }
-
       }
-  
+    
       .botones {
         display: flex;
         align-items: center;
         justify-content: center;
-        
-  
+    
         button {
-            background-color: #e018ae;
+          background-color: #e018ae;
+          color: white;
+          border: none;
+          padding: 15px 20px;
+          border-radius: 30px;
+          margin: 0 8px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+    
+          &.liked {
+            background-color: red;
+          }
+    
+          &.comentarios {
+            background-color: #4a4e69;
             color: white;
             border: none;
-            padding: 15px 20px;
-            border-radius: 30px;
-            margin: 0 8px;
+            padding: 10px;
+            border-radius: 50%; // Make the button round
+            margin: 0 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
-
-            &.liked {
-              background-color: red;
+    
+            &:hover {
+              background-color: lightgrey;
+            }
           }
-  
-            &.comentarios {
-                background-color: #4a4e69;
-                color: white;
-                border: none;
-                padding: 10px;
-                border-radius: 50%; // Make the button round
-                margin: 0 5px;
-                cursor: pointer;
-  
-                &:hover {
-                    background-color: lightgrey;
-                }
-            }
-            .like-counter,
-            .comment-counter {
-              margin-left: 15px; // Ajusta según sea necesario para separar el contador del símbolo
-            }
-            
-
+    
+          .like-counter,
+          .comment-counter {
+            margin-left: 15px; // Ajusta según sea necesario para separar el contador del símbolo
+          }
         }
+    
         .delete-button {
-          font-size: 15px; /* Ajusta el tamaño según sea necesario */
+          font-size: 15px; // Ajusta el tamaño según sea necesario
           // Otros estilos que desees aplicar al botón de eliminar
-      }
-      
+        }
       }
     }
+    
 
     .comentarios {
       width: 100%;

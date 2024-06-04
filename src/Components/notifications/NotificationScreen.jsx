@@ -82,6 +82,11 @@ function NotificationScreen() {
         navigate(url);
     }
 
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
         <div className="notification-screen">
             <div className="header">
@@ -103,11 +108,19 @@ function NotificationScreen() {
             <div className="notification-list">
                 {notifications.map(notification => (
                     <div key={notification.id} className="notification">
-                        <div className="notification-avatar">
+                        <div 
+                            className="notification-avatar" 
+                            onClick={() => handleUserClick(notification.userId)}
+                        >
                             <img src={notification.userProfilePicture} alt={`${notification.username}'s profile`} />
                         </div>
                         <div className="notification-content">
-                            <p><strong>{notification.username}</strong> {notification.message}</p>
+                            <p>
+                                <strong onClick={() => handleUserClick(notification.userId)}>
+                                    {notification.username}
+                                </strong> 
+                                {notification.message}
+                            </p>
                         </div>
                         {!notification.seen && (
                             <>
@@ -143,13 +156,13 @@ function NotificationScreen() {
                     <IoNotifications size={30} color="gray" />
                 </Link>
                 <Link to="/Feed" className="button">
-                    <FaSquarePollVertical size={30} />
+                    <FaSquarePollVertical size={30} color="black"/>
                 </Link>
                 <Link to="/InspoPage" className="button">
-                    <IoSparkles size={30} />
+                    <IoSparkles size={30} color="black" />
                 </Link>
                 <Link to="/Profile" className="button">
-                    <FaUserAlt size={30} />
+                    <FaUserAlt size={30} color="black" />
                 </Link>
             </div>
         </div>
