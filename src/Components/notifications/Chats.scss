@@ -1,0 +1,202 @@
+.chats-screen-container {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Ensure header content is aligned to the left */
+        margin-bottom: 20px;
+
+        .title {
+            margin: 0;
+            margin-left: 10px; /* Space between the back button and title */
+        }
+
+        .back-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            svg {
+                color: white;
+                font-size: 24px;
+            }
+        }
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .toggle-label {
+                color: #fff;
+                font-weight: normal;
+                transition: color 0.3s;
+            }
+
+            .toggle-label.active {
+                font-weight: bold;
+                color: #B06BA9;
+            }
+
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                margin-left: 10px;
+
+                input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    transition: .4s;
+                    border-radius: 20px;
+                }
+
+                .slider.round {
+                    border-radius: 20px;
+                }
+
+                input:checked + .slider {
+                    background-color: #B06BA9;
+                }
+
+                input:checked + .slider:before {
+                    transform: translateX(20px);
+                }
+
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .chats-list {
+        display: grid;
+        grid-gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+
+        .chat-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #3c3c3c;
+            }
+
+            .profile-picture {
+                margin-right: 10px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+            }
+
+            .user-info {
+                flex: 1;
+
+                h3 {
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                }
+            }
+
+            .status {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                .status-open {
+                    background-color: #5cb85c;
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                }
+
+                .status-closed {
+                    background-color: #d9534f;
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                }
+
+                .mark-as-closed {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                    margin-left: 10px;
+                    color: #B06BA9;
+
+                    &:hover {
+                        color: #8A4D76;
+                    }
+                }
+            }
+        }
+    }
+
+    .barra-fija {
+        background-color: white;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        gap: 2px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 60px;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            border-width: 0px;
+        }
+
+        a:hover {
+            color: inherit;
+        }
+    }
+}

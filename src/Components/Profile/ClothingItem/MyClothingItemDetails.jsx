@@ -16,12 +16,12 @@ function MyClothingItemDetails() {
 
     async function fetchClothingItem() {
         try {
-            const token = localStorage.getItem("token"); // Retrieve the token from local storage
-            const itemId = localStorage.getItem("selectedClothingItemId"); // Retrieve the clothing item ID from local storage
+            const token = localStorage.getItem("token"); 
+            const itemId = localStorage.getItem("selectedClothingItemId"); 
 
             const response = await fetch(`http://localhost:8080/api/clothingItem/get/${itemId}`, {
                 headers: {
-                    Authorization: `Bearer ${token}`, // Include the token in the 'Authorization' header
+                    'Authorization': `Bearer ${token}`, // Include the token in the 'Authorization' header
                 },
             });
 
@@ -43,9 +43,9 @@ function MyClothingItemDetails() {
             const clothingItemId = localStorage.getItem("selectedClothingItemId");
 
             const response = await fetch(`http://localhost:8080/api/clothingItem/changeAvailable/${clothingItemId}`, {
-                method: "POST",
+                method: 'POST',
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    'Authorization': `Bearer ${token}`,
                 },
             });
 
@@ -71,7 +71,7 @@ function MyClothingItemDetails() {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                'Authorization': `Bearer ${token}`,
             },
         });
         if (response.ok) {
@@ -132,12 +132,10 @@ function MyClothingItemDetails() {
                 </div>
             </div>
             {showDeleteModal && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>¿Eliminar prenda?</h2>
-                        <button onClick={handleConfirmDelete}>Sí</button>
-                        <button onClick={handleCancelDelete}>No</button>
-                    </div>
+                <div className="delete-modal">
+                  <p>¿Seguro que querés borrar esta prenda?</p>
+                    <button className="yes-button"onClick={handleConfirmDelete}>Yes</button>
+                    <button className="no-button"onClick={handleCancelDelete}>No</button>
                 </div>
             )}
         </div>

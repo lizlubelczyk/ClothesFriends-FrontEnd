@@ -143,20 +143,21 @@ function MyInspirationDetails() {
             <div className="inspiration-details">
                 <div className="outfit-details-container">
                     <div className="inspiration-details">
-                        <img src={inspiration.image.split("public/")[1]} alt="Outfit" />
+                        <img src={inspiration.image} alt="Outfit" />
                         <div className="description-square">
                             <p>{inspiration.description}</p>
                         </div>
                         <div className="botones">
                             <button                            >
                                 <FaHeart />
-                                <span>{likes}</span>
+                                <span className="like-counter">{likes}</span>
                             </button>
+                           
                             <button onClick={() => setCommentsVisible(!commentsVisible)}>
                                 <FaComment />
-                                <span>{comments.length}</span>
+                                <span className="comment-counter">{comments.length}</span>
                             </button>
-                            <button onClick={handleDeleteInspiration}>
+                            <button className="delete-button" onClick={handleDeleteInspiration}>
                                 <IoMdTrash />
                             </button>
 
@@ -190,8 +191,8 @@ function MyInspirationDetails() {
             {showDeleteModal && (
                 <div className="delete-modal">
                     <p>Are you sure you want to delete this inspiration?</p>
-                    <button onClick={handleConfirmDelete}>Yes</button>
-                    <button onClick={handleCancelDelete}>No</button>
+                    <button className="yes-button"onClick={handleConfirmDelete}>Yes</button>
+                    <button className="no-button"onClick={handleCancelDelete}>No</button>
                 </div>
             )}
         </div>

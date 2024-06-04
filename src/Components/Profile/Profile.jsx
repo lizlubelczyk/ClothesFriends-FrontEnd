@@ -9,6 +9,7 @@ import { FaSquarePollVertical } from "react-icons/fa6";
 import { TiPlus } from "react-icons/ti";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import NotificationScreen from '../notifications/NotificationScreen';
 
 function Profile() {
     const [showMenu, setShowMenu] = useState(false);
@@ -135,9 +136,11 @@ function Profile() {
             </button>
 
             <div className="barra-fija">
+                <Link to= "/NotificationScreen">
                 <button className="notifications">
                     <IoNotifications size={30} />
                 </button>
+                </Link>
                 <Link to="/Feed" >
                     <button className="inicio">
                         <FaSquarePollVertical size={30} />

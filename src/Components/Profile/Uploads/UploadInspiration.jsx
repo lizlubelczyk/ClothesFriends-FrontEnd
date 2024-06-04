@@ -108,7 +108,7 @@ function UploadInspiration() {
 
             {uploadSuccess && (
                 <div className="upload-success-square">
-                    <p>Item uploaded successfully!</p>
+                    <p>La inspiración se subió correctamente</p>
                     <button onClick={() => navigate(-1)} className="close-button">Close</button> {/* Use navigate(-1) to go back */}
                 </div>
             )}

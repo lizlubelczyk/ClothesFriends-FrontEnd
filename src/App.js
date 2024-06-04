@@ -32,6 +32,13 @@ import OtherFriends from './Components/OtherUser/OtherFriends.jsx';
 import OtherInspirationDetails from './Components/OtherUser/OtherInspirationDetails.jsx';
 import Feed from './Components/Feed/Feed.jsx';
 import LikedInspo from './Components/Profile/LikedInspo.jsx';
+import NotificationScreen from './Components/notifications/NotificationScreen.jsx';
+import BorrowRequest from './Components/notifications/BorrowRequest.jsx';
+import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDetails.jsx';
+import Chat from './Components/notifications/Chat.jsx';
+import Chats from './Components/notifications/Chats.jsx';
+import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
+
 
 function App() {
   return (
@@ -68,6 +75,14 @@ function App() {
         <Route path='/OtherInspirationDetails' element={<OtherInspirationDetails/>} />
         <Route path='/Feed' element={<Feed/>} />
         <Route path='/LikedInspo' element={<LikedInspo/>} />
+        <Route path='/NotificationScreen' element={<NotificationScreen/>} />
+        <Route path='/BorrowRequest/:requestId' element={<BorrowRequest/>} />
+        <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
+        <Route path='/Chat/:chatId' element={<Chat/>} />
+        <Route path='/Chats' element={<Chats/>} />
+        <Route path='/MySubcategory' element={<MySubcategory/>} />
+       
+
       </Routes>
     </Router>
   );
