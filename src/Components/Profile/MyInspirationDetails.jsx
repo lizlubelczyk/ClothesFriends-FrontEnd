@@ -1,33 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoIosArrowBack, IoMdTrash } from "react-icons/io";
 import withAuth from "../extras/withAuth";
 import "./MyInspirationDetails.scss";
 import { FaHeart, FaComment } from "react-icons/fa";
 
-
 function MyInspirationDetails() {
+    const { inspirationId } = useParams(); // Extract inspirationId from the URL
     const [inspiration, setInspiration] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const[comments, setComments] = useState([]);
-    const[commentText, setCommentText] = useState("");
-    const[commentsVisible, setCommentsVisible] = useState(false);
-    const[likes, setLikes] = useState(0);
+    const [comments, setComments] = useState([]);
+    const [commentText, setCommentText] = useState("");
+    const [commentsVisible, setCommentsVisible] = useState(false);
+    const [likes, setLikes] = useState(0);
     const userId = parseInt(localStorage.getItem('userId'));
-
 
     useEffect(() => {
         fetchInspiration();
         getLikes();
         fetchComments();
-    }, []);
+    }, [inspirationId]); // Re-run effects if inspirationId changes
 
     async function fetchInspiration() {
         try {
             const token = localStorage.getItem('token'); // Retrieve the token from local storage
-            const inspirationId = localStorage.getItem('selectedInspirationId'); // Retrieve the user ID from local storage
 
             // Fetch clothing items from backend
             const response = await fetch(`http://localhost:8080/api/inspiration/get/${inspirationId}`, {
@@ -51,7 +49,6 @@ function MyInspirationDetails() {
 
     async function getLikes() {
         const token = localStorage.getItem('token');
-        const inspirationId = localStorage.getItem('selectedInspirationId');
         try {
             const response = await fetch(`http://localhost:8080/api/inspiration/get/${inspirationId}/likes`, {
                 method: 'GET',
@@ -73,7 +70,6 @@ function MyInspirationDetails() {
     async function fetchComments() {
         try {
             const token = localStorage.getItem('token');
-            const inspirationId = localStorage.getItem('selectedInspirationId');
 
             const response = await fetch(`http://localhost:8080/api/inspiration/${inspirationId}/getComments`, {
                 headers: {
@@ -91,8 +87,6 @@ function MyInspirationDetails() {
             console.error("An error occurred while fetching comments:", error);
         }
     }
-
-
 
     const handleDeleteInspiration = () => {
         setShowDeleteModal(true);
@@ -130,13 +124,17 @@ function MyInspirationDetails() {
         return <div>No inspiration found</div>;
     }
     console.log(typeof inspiration.image)
+
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
-        <div className="my-inspiration-container"> 
+        <div className="my-inspiration-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/Profile">
-                        <IoIosArrowBack color="white" size="30" />
-                    </Link>
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
                 </button>
                 <h1 className="title">Inspiración</h1>
             </div>
@@ -148,11 +146,10 @@ function MyInspirationDetails() {
                             <p>{inspiration.description}</p>
                         </div>
                         <div className="botones">
-                            <button                            >
+                            <button>
                                 <FaHeart />
                                 <span className="like-counter">{likes}</span>
                             </button>
-                           
                             <button onClick={() => setCommentsVisible(!commentsVisible)}>
                                 <FaComment />
                                 <span className="comment-counter">{comments.length}</span>
@@ -160,7 +157,6 @@ function MyInspirationDetails() {
                             <button className="delete-button" onClick={handleDeleteInspiration}>
                                 <IoMdTrash />
                             </button>
-
                         </div>
                         {commentsVisible && (
                             <div className="comentarios">
@@ -171,7 +167,7 @@ function MyInspirationDetails() {
                                             alt="Profile"
                                         />
                                         <div className="comentario-detalle">
-                                            <div className="usuario">
+                                            <div className="usuario" onClick={() => handleUserClick(comment.userId)}>
                                                 <span>{comment.username}</span>
                                             </div>
                                             <div className="texto">
@@ -182,17 +178,15 @@ function MyInspirationDetails() {
                                 ))}
                             </div>
                         )}
-
                     </div>
                 </div>
-                
             </div>
 
             {showDeleteModal && (
                 <div className="delete-modal">
                     <p>Are you sure you want to delete this inspiration?</p>
-                    <button className="yes-button"onClick={handleConfirmDelete}>Yes</button>
-                    <button className="no-button"onClick={handleCancelDelete}>No</button>
+                    <button className="yes-button" onClick={handleConfirmDelete}>Yes</button>
+                    <button className="no-button" onClick={handleCancelDelete}>No</button>
                 </div>
             )}
         </div>
