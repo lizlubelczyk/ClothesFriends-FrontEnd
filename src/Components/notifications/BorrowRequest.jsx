@@ -98,10 +98,8 @@ function BorrowRequest() {
     return (
         <div className="borrow-request-screen">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/NotificationScreen">
-                        <IoIosArrowBack color="white" size="30" />
-                    </Link>
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
                 </button>
                 <h1 className="title">Solicitud de Préstamo:</h1>
             </div>
