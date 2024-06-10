@@ -1,76 +1,86 @@
 .chat-page-container {
     font-family: Arial, sans-serif;
-    padding: 20px;
     background-color: #191818;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
     .header {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        padding: 20px 40px; /* Aumentado el padding */
+        background-color: #333;
+        width: 100%;
+        box-sizing: border-box;
 
         .back-button {
             background-color: transparent;
-            border-width: 0px;
+            border: none;
             border-radius: 100px;
+            padding: 10px;
+
             &:hover {
                 background-color: #C9ADA7;
+            }
+
+            svg {
+                color: white;
+                font-size: 24px;
             }
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            margin-left: 20px; /* Add margin here */
-        }
+            flex: 1;
 
-        .profile-picture {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 10px;
+            .profile-picture {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
-        }
 
-        .title {
-            color: #B06BA9;
-            margin-right: 20px; /* Add margin here */
+            .title {
+                color: #B06BA9;
+                font-size: 25px; /* Aumentado el tamaño de fuente */
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-left: 20px; /* Aumentado el margen */
+                max-height: 80px; /* Aumentada la altura máxima */
+                flex: 1;
+            }
         }
 
         .status-container {
             display: flex;
             align-items: center;
-            margin-left: auto;
 
-            .status-button {
-                padding: 10px 20px;
+            .status-button,
+            .close-button {
+                padding: 10px 15px;
                 border: none;
                 border-radius: 5px;
                 background-color: green;
                 color: white;
                 font-size: 16px;
-                margin-right: 10px;
+                margin-left: 5px;
                 cursor: default;
             }
 
             .close-button {
-                display: flex;
-                align-items: center;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
                 background-color: grey;
-                color: white;
-                font-size: 16px;
-                cursor: pointer;
 
                 &:hover {
                     background-color: darkgrey;
@@ -88,28 +98,29 @@
         display: flex;
         flex-direction: column-reverse;
         overflow-y: auto;
-        padding: 10px;
+        padding: 20px;
+        background-color: #2c2c2c;
         border: 1px solid #333;
         border-radius: 10px;
-        background-color: #2c2c2c;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+
+    .message {
+        max-width: 70%;
+        padding: 10px;
+        border-radius: 10px;
         margin-bottom: 10px;
+        color: #fff;
 
-        .message {
-            max-width: 70%;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            color: #fff;
+        &.sent {
+            align-self: flex-end;
+            background-color: #4CAF50;
+        }
 
-            &.sent {
-                align-self: flex-end;
-                background-color: #4CAF50;
-            }
-
-            &.received {
-                align-self: flex-start;
-                background-color: #555;
-            }
+        &.received {
+            align-self: flex-start;
+            background-color: #555;
         }
     }
 
@@ -117,6 +128,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px;
+        background-color: #333;
+        border-top: 1px solid #444;
+        width: 100%;
+        box-sizing: border-box;
 
         input {
             flex: 1;
@@ -124,6 +140,13 @@
             border: 1px solid #333;
             border-radius: 10px;
             margin-right: 10px;
+            background-color: #191818;
+            color: white;
+
+            &:focus {
+                outline: none;
+                border-color: #B06BA9;
+            }
         }
 
         button {
