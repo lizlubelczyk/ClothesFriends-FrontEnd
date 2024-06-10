@@ -124,10 +124,25 @@
     .full-name {
         margin-left: -210px;
         margin-top: -10px;
+        margin-right: 10px;
         margin-bottom: 20px;
         color: rgb(214, 145, 224);
         font-size: 24px;
         font-weight: bold;
+        
+
+        .friend-button {
+            background-color: #dd7eb9;
+            margin-left: 20px;
+            color: white;
+            border: none;
+            padding: 10px 5px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
     }
 
     .posts-likeados {
@@ -236,6 +251,7 @@
             color: inherit;
             
         }
+        
     
         a:hover {
             color: inherit;

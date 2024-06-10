@@ -69,19 +69,25 @@ function InspoPage(){
         navigate("/OtherInspirationDetails");
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        handleSearch(); // Call handleSearch function when form is submitted
+    };
     
     return(
         <div className= "subcategory-container">
-            <div className="search-container">
+            <form onSubmit={handleSubmit}>
+                <div className="search-container">
                     <input
                         type="text"
                         placeholder="Search by username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
-                    <button onClick={handleSearch}>Search</button>
+                    <button type="submit">Search</button>
                     {searchError && <p className="error-message">{searchError}</p>}
-            </div>
+                </div>
+            </form>
             <div className="clothing-items-container">
                 {inspirations.map((inspiration) => (
                 <div key={inspiration.id} className="clothing-item" onClick={() => handleClick(inspiration.inspirationId)}>
