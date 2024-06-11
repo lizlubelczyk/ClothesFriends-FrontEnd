@@ -89,12 +89,22 @@
         justify-content: space-around;
         padding: 10px;
         gap: 2px;
-        position: fixed; /* Fixed positioning */
-        top: 0; /* Fixed to the top */
+        position: fixed;
+        bottom: 0;
+        margin-left: -14px;
         height: 60px;
-        z-index: 2; /* Asegura que esté encima del contenido */
-    }
+        align-items: center;
 
-    .barra-fija button {
-        font-size: 35px;
-        width:
+    
+        a {
+            text-decoration: none;
+            color: inherit;
+            
+        }
+        
+    
+        a:hover {
+            color: inherit;
+        }
+    }
+}
