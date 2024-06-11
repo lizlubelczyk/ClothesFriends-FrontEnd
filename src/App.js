@@ -38,6 +38,8 @@ import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDe
 import Chat from './Components/notifications/Chat.jsx';
 import Chats from './Components/notifications/Chats.jsx';
 import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
+import Archivedutfits from './Components/Profile/ArchivedOutfits.jsx';
+import ArchivedOutfitDetails from './Components/Profile/ArchivedOutfitDetails.jsx';
 
 
 function App() {
@@ -60,7 +62,7 @@ function App() {
         <Route path='/UploadOutfit' element={<UploadOutfit/>} />
         <Route path='/MyInspirations' element={<MyInspirations/>} />
         <Route path='/MyCurrentOutfit' element={<MyCurrentOutfit/>} />
-        <Route path='/MyInspirationDetails' element={<MyInspirationDetails/>} />
+        <Route path='/MyInspirationDetails/:inspirationId' element={<MyInspirationDetails/>} />
         <Route path='/InspoPage' element={<InspoPage/>} />
         <Route path='/OtherUserProfile' element={<OtherUserProfile/>} />
         <Route path='/OtherItems' element={<OtherItems/>} />
@@ -81,7 +83,8 @@ function App() {
         <Route path='/Chat/:chatId' element={<Chat/>} />
         <Route path='/Chats' element={<Chats/>} />
         <Route path='/MySubcategory' element={<MySubcategory/>} />
-       
+        <Route path='/ArchivedOutfits' element={<Archivedutfits/>} />
+        <Route path='/ArchivedOutfitDetails/:outfitId' element={<ArchivedOutfitDetails/>} />
 
       </Routes>
     </Router>

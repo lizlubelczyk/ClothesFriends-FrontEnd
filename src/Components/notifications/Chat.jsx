@@ -120,9 +120,7 @@ function Chat() {
                         {chat && (
                             <div className="user-info">
                                 <h1 className="title">{chat.user} | {chat.clothingItem}</h1>
-                                <div className="profile-picture">
-                                    <img src={chat.profilePicture} alt="Profile" />
-                                </div>
+                                
                             </div>
                         )}
                         <div className="status-container">

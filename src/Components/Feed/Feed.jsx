@@ -228,13 +228,18 @@ function Feed() {
         }
     }
 
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
         <div className="container">
             {outfits.map((outfit) => (
                 <div key={outfit.outfitId} className="publicacion">
                     <div className="perfil-usuario">
                         <img src={outfit.profilePicture || pfp} alt="Perfil" />
-                        <span>{outfit.username}</span>
+                        <span onClick= {() => handleUserClick(outfit.userId)}>{outfit.username}</span>
                     </div>
                     <img src={outfit.image || img} alt="Outfit" />
                     <div className="descripcion">{outfit.description}</div>
@@ -267,7 +272,7 @@ function Feed() {
                                 <div key={comment.commentId} className="comentario">
                                     <img src={comment.profilePicture || pfp} alt="Perfil" />
                                     <div className="comentario-detalle">
-                                        <div className="usuario">{comment.username}</div>
+                                        <div className="usuario" onClick = {() => handleUserClick(comment.userId)} >{comment.username}</div>
                                         <div className="texto">{comment.comment}</div>
                                         {(comment.userId === userId) && (
                                             <button onClick={() => handleDeleteComment(outfit.outfitId, comment.commentId)}>
@@ -307,9 +312,9 @@ function Feed() {
                 <Link to="/InspoPage" className="inspo">
                     <IoSparkles size={30} />
                 </Link>
-                <button className="profile">
-                    <FaUserAlt size={30} />
-                </button>
+                <Link to = "/Profile" className="profile">
+                        <FaUserAlt size={30} />
+                </Link>
             </div>
         </div>
     );

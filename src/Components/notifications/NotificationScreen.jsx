@@ -140,6 +140,22 @@ function NotificationScreen() {
                                         <IoIosChatbubbles size={20} />
                                     </button>
                                 )}
+                                {notification.type === 'OUTFIT_COMMENT' && (
+                                    <button
+                                        className="view-notification"
+                                        onClick={() => handleNotificationClick(notification.notificationURL)}
+                                    >
+                                        <FaSquarePollVertical size={20} />
+                                    </button>
+                                )}
+                                {notification.type === 'INSPIRATION_COMMENT' && (
+                                    <button
+                                        className="view-notification"
+                                        onClick={() => handleNotificationClick(notification.notificationURL)}
+                                    >
+                                        <IoSparkles size={20} />
+                                    </button>
+                                )}
                                 <button
                                     className="mark-as-read"
                                     onClick={() => markAsRead(notification.id)}

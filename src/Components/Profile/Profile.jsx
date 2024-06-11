@@ -3,7 +3,7 @@ import './Profile.scss';
 import pfp from '../Assets/pfp.jpg';
 import { useNavigate } from 'react-router-dom';
 import withAuth from '../extras/withAuth';
-import { FaHeart, FaUserAlt } from "react-icons/fa";
+import { FaHeart, FaUserAlt, FaClock } from "react-icons/fa";
 import { IoSparkles, IoNotifications } from "react-icons/io5";
 import { FaSquarePollVertical } from "react-icons/fa6";
 import { TiPlus } from "react-icons/ti";
@@ -72,8 +72,6 @@ function Profile() {
             }
         };
 
-            
-
         fetchUser();
         checkOutfit();
         countFriends();
@@ -116,11 +114,18 @@ function Profile() {
                 {user.fullName}
             </div>
 
-            <button className="posts-likeados">
-                <Link to="/LikedInspo">
-                    <FaHeart />
-                </Link>
-            </button>
+            <div className="buttons-row">
+                <button className="archived-outfits">
+                    <Link to="/ArchivedOutfits">
+                        <FaClock />
+                    </Link>
+                </button>
+                <button className="posts-likeados">
+                    <Link to="/LikedInspo">
+                        <FaHeart />
+                    </Link>
+                </button>
+            </div>
 
             <Link to="/MyItems" className="square1">
                 <span className="prendas">PRENDA</span>
