@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack, IoMdCloseCircle } from "react-icons/io";
 import "./Chat.scss";
 import withAuth from "../extras/withAuth";
-import SockJS from 'sockjs-client';
-import Stomp from 'stompjs';
+import { useSubscription } from "react-stomp-hooks";
+
 
 function Chat() {
     const { chatId } = useParams();
@@ -15,38 +15,13 @@ function Chat() {
     const [isLoading, setIsLoading] = useState(true);
     const [newMessage, setNewMessage] = useState("");
     const userId = localStorage.getItem('userId');
-    const stompClient = useRef(null);
+    useSubscription(`/topic/chat/${chatId}`, ()=>fetchMessages());
 
     useEffect(() => {
         fetchChat();
         fetchMessages();
-        setupWebSocket();
-        // Clean up WebSocket connection on component unmount
-        return () => {
-            if (stompClient.current) {
-                stompClient.current.disconnect();
-            }
-        };
     }, []);
 
-    function setupWebSocket() {
-        const socket = new SockJS('http://localhost:8080/ws'); // Use the browser version of SockJS
-        stompClient.current = Stomp.over(socket);
-        stompClient.current.connect({}, () => {
-            console.log('Connected to WebSocket');
-            stompClient.current.subscribe(`/topic/chat/${chatId}`, (message) => {
-                const receivedMessage = JSON.parse(message.body);
-                // Only update messages if the chatId matches
-                if (receivedMessage.chatId === parseInt(chatId)) {
-                    setMessages(prevMessages => [...prevMessages, receivedMessage]);
-                }
-            });
-        }, (error) => {
-            console.error('Error connecting to WebSocket:', error);
-        });
-    }
-    
-    
     async function fetchChat() {
         try {
             const token = localStorage.getItem('token');
@@ -121,12 +96,12 @@ function Chat() {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: newMessage }) // Ensure to stringify correctly
+                body: JSON.stringify(newMessage)
             });
 
             if (response.ok) {
                 setNewMessage("");
-                // No need to fetch messages here as WebSocket will update
+                fetchMessages();  // Refresh messages after sending a new one
             } else {
                 console.error("Error sending message");
             }

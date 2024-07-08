@@ -3,9 +3,7 @@ import '../Profile/Profile.scss';
 import pfp from '../Assets/pfp.jpg';
 import { useNavigate } from 'react-router-dom';
 import withAuth from '../extras/withAuth';
-import { FaHeart, FaUserAlt } from "react-icons/fa";
-import { IoSparkles, IoNotifications } from "react-icons/io5";
-import { FaSquarePollVertical } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 

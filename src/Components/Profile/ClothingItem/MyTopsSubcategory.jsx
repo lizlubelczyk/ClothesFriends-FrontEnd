@@ -45,10 +45,8 @@ function handleClick(clothingItemId) {
   return (
     <div className="subcategory-container">
       <div className="header">
-        <button className="back-button">
-          <Link to="/MyItems">
+      <button className="back-button" onClick={() => navigate(-1)}>
             <IoIosArrowBack color="white" size="30" />
-          </Link>
         </button>
         <h1 className="title">Tops</h1>
       </div>
