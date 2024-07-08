@@ -41,10 +41,8 @@ function ArchivedOutfits() {
     return(
         <div className="subcategory-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/Profile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                         <IoIosArrowBack color="white" size="30" />
-                    </Link>
                 </button>
                 <h1 className="title">Mis Outfits Archivados</h1>
             </div>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect }  from "react"
 import "../Profile/Uploads/Uploads.scss";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import withAuth from "../extras/withAuth";
 function OtherItems(){
     const [fullName, setFullName] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchFullName = async () => {
@@ -39,10 +40,8 @@ function OtherItems(){
     return(
         <div className="uploads-container">
             <div className="header">
-                <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/profile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Prendas de {fullName}</h1>
             </div>

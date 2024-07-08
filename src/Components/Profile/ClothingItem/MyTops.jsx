@@ -15,10 +15,8 @@ function MyTops(){
     return(
         <div className="uploads-container">
             <div className="header">
-                <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/MyItems">
+            <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Tops</h1>
             </div>

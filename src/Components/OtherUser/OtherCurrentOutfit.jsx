@@ -252,10 +252,8 @@ function OtherCurrentOutfit() {
   return (
     <div className="current-outfit-container">
       <div className="header">
-        <button className="back-button">
-          <Link to="/OtherUserProfile">
+      <button className="back-button" onClick={() => navigate(-1)}>
             <IoIosArrowBack color="white" size="30" />
-          </Link>
         </button>
         <h1 className="title">Outfit Actual</h1>
       </div>

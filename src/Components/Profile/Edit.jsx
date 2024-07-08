@@ -22,6 +22,8 @@ function Edit() {
     const [fullName, setFullName] = useState('');
     const [whatsappLink, setWhatsappLink] = useState('');
     const [profilePicture, setProfilePicture] = useState('');
+    const [isPublic, setIsPublic] = useState(false);
+
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -40,6 +42,7 @@ function Edit() {
         if (response.ok) {
             const data = await response.json();
             setUser(data);
+            setIsPublic(data.isPublic); 
         }
         else {
             console.log('Error');
@@ -109,7 +112,7 @@ function Edit() {
     
             if (response.ok) {
                 console.log("User updated successfully");
-                navigate("/profile"); // Navigate after successful update
+                navigate("/Profile"); // Navigate after successful update
             } else {
                 console.error("Error updating user");
             }
@@ -150,17 +153,39 @@ function Edit() {
         }
     };
     
-      
+    const handlePublicChange = async () => {
+        try {
+            const userId = localStorage.getItem("userId");
+            const token = localStorage.getItem("token");
+    
+            const response = await fetch(
+                `http://localhost:8080/api/user/me/${userId}/public-profile`,
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+    
+            if (response.ok) {
+                console.log("User updated successfully");
+            } else {
+                console.error("Error updating user");
+            }
+        } catch (error) {
+            console.error("An error occurred while updating the user:", error);
+        }
+    }
+
 
       
     
     return (
         <div className="edit-container">
             <div className="header">
-                <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/profile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Editar perfil</h1>
             </div>
@@ -181,9 +206,24 @@ function Edit() {
                     <FaIdCard size={20} color="gray"/>
                     <input type="text" placeholder='Nombre Completo' value={user.fullName} name='fullName'  onChange={e => setUser(prevUser => ({ ...prevUser, fullName: e.target.value}))} />
                 </div>
-                <div className="input"> 
-                    <IoLogoWhatsapp size={20} color="gray" />
-                    <input type="text" placeholder='Link a Whatsapp' name='whatsappLink' value={user.whatsappLink} onChange={e=> setUser(prevUser => ({ ...prevUser, whatsappLink: e.target.value}))}/>
+                <div className="toggle-container">
+                    <div className="text-with-icon">
+                        <span>
+                            {isPublic ? "Perfil público" : "PerfilPrivado"}
+                        </span>
+                    </div>
+                    <label className="toggle-switch">
+                        <input
+                            type="checkbox"
+                            checked={isPublic}
+                            onChange={() => {
+                                setIsPublic(!isPublic); // Update the state locally
+                                handlePublicChange(); // Trigger the backend update
+                            }}
+                        />
+                        <span className="slider round"></span>
+                    </label>
+
                 </div>
                 <button className="button" type="submit" onClick={handleSubmit} >Guardar Cambios</button>
                 <button className="button" type="button" onClick={handleDeleteUser}>Borrar Usuario</button>

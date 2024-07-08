@@ -4,13 +4,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link,useNavigate } from "react-router-dom";
 import withAuth from "../../extras/withAuth";
 
-
-function MyAccesories(){
+function PublicAccesories(){
     const navigate = useNavigate();
 
     const handleSubcategoryClick = (subcategory) => {
         localStorage.setItem('subcategory', subcategory);
-        navigate('/MySubcategory');
+        navigate('/PublicSubcategory');
     };
     return(
         <div className="uploads-container">
@@ -27,18 +26,9 @@ function MyAccesories(){
             <button className="profile-button" onClick={() => handleSubcategoryClick('Bijou')}>BIJOU</button>
             <button className="profile-button" onClick={() => handleSubcategoryClick('Cinturones')}>CINTURONES</button>
             <button className="profile-button" onClick={() => handleSubcategoryClick('Gorros')}>GORROS</button>
-
-
-
             </div>
-
         </div>
-        
-
-
     )
 }
 
-export default withAuth(MyAccesories)
-
-
+export default PublicAccesories

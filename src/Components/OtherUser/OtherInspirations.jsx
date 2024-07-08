@@ -68,10 +68,8 @@ function OtherInspirations(){
     return(
         <div className="subcategory-container">
             <div className="header">
-                <button className="back-button">
-                <Link to="/OtherUserProfile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Inspiraciones de {fullName} </h1>
             </div>

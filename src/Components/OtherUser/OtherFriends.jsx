@@ -77,10 +77,8 @@ function OtherFriends(){
     return(
         <div className = "friends-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/OtherProfile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                         <IoIosArrowBack color="white" size="30" />
-                    </Link>
                 </button>
                 <h1 className="title">Mis Amigos</h1>
             </div>
