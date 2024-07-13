@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { IoIosArrowBack, IoMdTrash } from "react-icons/io";
 import '../MyCurrentOutfit.scss';
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { BiSolidComment } from "react-icons/bi";
 import pfp from '../../Assets/pfp.jpg';
 
 function PublicCurrentOutfit() {
+    const {userId} = useParams();
     const [hasOutfit, setHasOutfit] = useState(false);
     const [outfit, setOutfit] = useState(null);
     const [likes, setLikes] = useState(0);
@@ -18,8 +19,6 @@ function PublicCurrentOutfit() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userId = localStorage.getItem("searchedUserId");
-
                 // Check if user has an outfit
                 const hasOutfitResponse = await fetch(
                     `http://localhost:8080/api/outfit/${userId}/hasOutfitPublic`

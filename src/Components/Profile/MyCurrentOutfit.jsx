@@ -6,6 +6,8 @@ import { BiSolidComment } from 'react-icons/bi';
 import { IoIosArrowBack, IoMdTrash } from 'react-icons/io';
 import './MyCurrentOutfit.scss';
 import pfp from '../Assets/pfp.jpg';
+import TweetButton from './TwitterShareButton';
+import FacebookShareButton from './FacebookShareButton';
 
 function MyCurrentOutfit() {
     const [hasOutfit, setHasOutfit] = useState(false);
@@ -119,7 +121,7 @@ function MyCurrentOutfit() {
     const handleConfirmDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:8080/api/outfit/${outfit.id}/delete`, {
+            const response = await fetch(`http://localhost:8080/api/outfit/${outfit.outfitId}/delete`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -187,6 +189,18 @@ function MyCurrentOutfit() {
                             <button onClick={handleDeleteOutfit}>
                                 <IoMdTrash />
                             </button>
+                            <TweetButton
+                                text={`¡Publiqué un outfit en ClothesFriends!Decime si te gusta en: ${outfit.description}`}
+                                url={`http://localhost:3000/PublicCurrentOutfit/${outfit.outfitId}`}
+                                hashtags={['Outfit', 'Fashion', 'ClothesFriends']}
+                                via="cFriendstwt"
+                                size="large"
+                            />
+                            <FacebookShareButton
+                                url={`https://clothesfriends.com/PublicCurrentOutfit/${outfit.outfitId}`}
+                                quote={`¡Publiqué este outfit en ClothesFriends! ${outfit.description}`}
+                                hashtag="#ClothesFriends"
+                            />
                         </div>
                         {showComments && (
                             <div className="comentarios">
