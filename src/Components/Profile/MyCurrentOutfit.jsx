@@ -6,6 +6,8 @@ import { BiSolidComment } from 'react-icons/bi';
 import { IoIosArrowBack, IoMdTrash } from 'react-icons/io';
 import './MyCurrentOutfit.scss';
 import pfp from '../Assets/pfp.jpg';
+import TweetButton from './TwitterShareButton';
+import FacebookShareButton from './FacebookShareButton';
 
 function MyCurrentOutfit() {
     const [hasOutfit, setHasOutfit] = useState(false);
@@ -119,7 +121,7 @@ function MyCurrentOutfit() {
     const handleConfirmDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:8080/api/outfit/${outfit.id}/delete`, {
+            const response = await fetch(`http://localhost:8080/api/outfit/${outfit.outfitId}/delete`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,13 +149,16 @@ function MyCurrentOutfit() {
         setShowComments(!showComments);
     };
 
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
         <div className="current-outfit-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/Profile">
-                        <IoIosArrowBack color="white" size="30" />
-                    </Link>
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
                 </button>
                 <h1 className="title">Outfit Actual</h1>
             </div>
@@ -184,13 +189,25 @@ function MyCurrentOutfit() {
                             <button onClick={handleDeleteOutfit}>
                                 <IoMdTrash />
                             </button>
+                            <TweetButton
+                                text={`¡Publiqué un outfit en ClothesFriends!Decime si te gusta en: ${outfit.description}`}
+                                url={`http://localhost:3000/PublicCurrentOutfit/${outfit.outfitId}`}
+                                hashtags={['Outfit', 'Fashion', 'ClothesFriends']}
+                                via="cFriendstwt"
+                                size="large"
+                            />
+                            <FacebookShareButton
+                                url={`https://clothesfriends.com/PublicCurrentOutfit/${outfit.outfitId}`}
+                                quote={`¡Publiqué este outfit en ClothesFriends! ${outfit.description}`}
+                                hashtag="#ClothesFriends"
+                            />
                         </div>
                         {showComments && (
                             <div className="comentarios">
                                 {comments.map(comment => (
                                     <div key={comment.commentId} className="comentario">
                                         <img src={comment.profilePicture || pfp} alt="Perfil" />
-                                        <div className="comentario-detalle">
+                                        <div className="comentario-detalle" onClick={() => handleUserClick(comment.userId)} >
                                             <div className="usuario">{comment.username}</div>
                                             <div className="texto">{comment.comment}</div>
                                         </div>

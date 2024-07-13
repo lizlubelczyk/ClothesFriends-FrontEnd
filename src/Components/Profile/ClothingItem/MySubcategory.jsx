@@ -72,10 +72,8 @@ function MySubcategory(){
     return (
         <div className="subcategory-container">
           <div className="header">
-            <button className="back-button">
-              <Link to="/MyItems">
-                <IoIosArrowBack color="white" size="30" />
-              </Link>
+          <button className="back-button" onClick={() => navigate(-1)}>
+          <IoIosArrowBack color="white" size="30" />
             </button>
             <h1 className="title">{subcategory}</h1>
           </div>

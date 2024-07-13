@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import withAuth from "../extras/withAuth";
 import "./Friends.scss";
@@ -8,6 +8,7 @@ function MyInspirationDetails() {
     const [friends, setFriends] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [friendToRemove, setFriendToRemove] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchFriends();
@@ -99,19 +100,22 @@ function MyInspirationDetails() {
         setFriendToRemove(null);
     };
 
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
         <div className="friends-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/Profile">
+            <button className="back-button" onClick={() => navigate(-1)}>
                         <IoIosArrowBack color="white" size="30" />
-                    </Link>
                 </button>
                 <h1 className="title">Mis Amigos</h1>
             </div>
             <div className="friends-list">
                 {friends.map(friend => (
-                    <div key={friend.userId} className="friend">
+                    <div key={friend.userId} className="friend" onClick={() => handleUserClick(friend.userId)}>
                         <img src={friend.profilePicture || 'default-pic.jpg'} alt={friend.username} className="friend-pic" />
                         <span className="friend-username">{friend.username}</span>
                         <button

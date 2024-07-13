@@ -3,10 +3,10 @@ import '../Profile/Profile.scss';
 import pfp from '../Assets/pfp.jpg';
 import { useNavigate } from 'react-router-dom';
 import withAuth from '../extras/withAuth';
-import { FaHeart, FaUserAlt } from "react-icons/fa";
-import { IoSparkles, IoNotifications } from "react-icons/io5";
-import { FaSquarePollVertical } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
+import { IoIosArrowBack } from "react-icons/io";
+
 
 function OtherUserProfile() {
   const [user, setUser] = useState('');
@@ -126,6 +126,9 @@ function OtherUserProfile() {
   return (
     <div className="container">
       <div className="usuario">
+        <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
+        </button>
         <FaUserAlt className='user-icon' size={25} />
         <span>{user.username}</span>
       </div>
@@ -151,20 +154,6 @@ function OtherUserProfile() {
       <Link to="/OtherInspirations" className="square2">
         <span className="inspiracion">INSPIRACIÓN</span>
       </Link>
-      <div className="barra-fija">
-        <button className="notifications">
-          <IoNotifications size={30} />
-        </button>
-        <button className="inicio">
-          <FaSquarePollVertical size={30} />
-        </button>
-        <Link to="/InspoPage" className="inspo">
-          <IoSparkles size={30} />
-        </Link>
-        <Link to="/Profile" className="profile">
-          <FaUserAlt size={30} />
-        </Link>
-      </div>
     </div>
   );
 }

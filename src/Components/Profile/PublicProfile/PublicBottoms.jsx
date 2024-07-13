@@ -4,12 +4,11 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link ,useNavigate} from "react-router-dom";
 import withAuth from "../../extras/withAuth";
 
-
-function MyBottoms(){
+function PublicBottoms(){
     const navigate = useNavigate();
     const handleSubcategoryClick = (subcategory) => {
         localStorage.setItem('subcategory', subcategory);
-        navigate('/MySubcategory');
+        navigate('/PublicSubcategory');
       };
 
     return(
@@ -27,18 +26,9 @@ function MyBottoms(){
             <button className="profile-button" onClick={() => handleSubcategoryClick('Polleras')}>POLLERAS</button>
             <button className="profile-button" onClick={() => handleSubcategoryClick('Shorts')}>SHORTS</button>
             <button className="profile-button" onClick={() => handleSubcategoryClick('Vesrtidos')}>VESTIDOS</button>
-
-
-
             </div>
-
         </div>
-        
-
-
     )
 }
 
-export default withAuth(MyBottoms)
-
-
+export default PublicBottoms

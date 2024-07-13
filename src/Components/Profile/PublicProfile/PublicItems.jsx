@@ -3,7 +3,8 @@ import "../Uploads/Uploads.scss"
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import withAuth from "../../extras/withAuth";
-function MyItems(){
+
+function PublicItems (){
     const navigate = useNavigate();
 
     return(
@@ -15,13 +16,13 @@ function MyItems(){
                 <h1 className="title">Categorías</h1>
             </div>
             <div className="buttons-container">
-                <Link to="/MyTops">
+                <Link to="/PublicTops">
                     <button className="profile-button">TOP</button>
                 </Link>                
-                <Link to="/MyBottoms">
+                <Link to="/PublicBottoms">
                     <button className="profile-button">BOTTOMS</button>
                 </Link>   
-                <Link to="/MyAccesories">
+                <Link to="/PublicAccesories">
                     <button className="profile-button">ACCESORIOS</button>
                 </Link> 
             </div>
@@ -29,10 +30,7 @@ function MyItems(){
         </div>
         
 
-
     )
 }
 
-export default withAuth(MyItems)
-
-
+export default PublicItems

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaHeart, FaComment } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io"; // Import the IoMdTrash icon
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import withAuth from '../extras/withAuth';
 import '../Profile/MyInspirationDetails.scss';
 
@@ -15,6 +15,7 @@ function OtherInspirationDetails() {
     const [wasLiked, setWasLiked] = useState(false);
     const [likes, setLikes] = useState(0);
     const userId = parseInt(localStorage.getItem('userId')); // Get the logged-in user's ID
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchInspiration();
@@ -230,20 +231,23 @@ function OtherInspirationDetails() {
         }
     }
 
+    function handleUserClick(userId) {
+        localStorage.setItem('searchedUserId', userId);
+        navigate(`/OtherUserProfile`);
+    }
+
     return (
         <div className="my-inspiration-container">
             <div className="header">
-                <button className="back-button">
-                    <Link to="/Profile">
-                        <IoIosArrowBack color="white" size="30" />
-                    </Link>
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    <IoIosArrowBack color="white" size="30" />
                 </button>
                 <h1 className="title">Inspiración</h1>
             </div>
             <div className="inspiration-details">
                 <div className="outfit-details-container">
                     <div className="inspiration-details">
-                        <div className="user-fullname">
+                        <div className="user-fullname" onClick= {() => handleUserClick(inspiration.userId)}>
                             <h2>{fullName}</h2>
                         </div>
                         <img src={inspiration.image} alt="Outfit" />

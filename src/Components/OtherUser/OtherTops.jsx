@@ -44,10 +44,8 @@ function OtherTops(){
     return(
         <div className="uploads-container">
             <div className="header">
-                <button className="back-button" onClick={() => {/* Navigate back to profile page */}}>
-                <Link to="/OtherItems">
+            <button className="back-button" onClick={() => navigate(-1)}>
                     <IoIosArrowBack color="white" size="30" />
-                </Link>
                 </button>
                 <h1 className="title">Tops de {fullName}</h1>
             </div>

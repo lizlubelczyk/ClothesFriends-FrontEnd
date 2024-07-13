@@ -4,7 +4,7 @@ import { FaSquarePollVertical } from "react-icons/fa6";
 import { TiPlus } from "react-icons/ti";
 import { useNavigate, Link } from 'react-router-dom';
 import withAuth from '../extras/withAuth';
-import { FaHeart, FaUserAlt } from "react-icons/fa";
+import { FaHeart, FaUserAlt, FaSearch } from "react-icons/fa";
 import "../Profile/ClothingItem/Subcategory.scss"
 
 
@@ -69,19 +69,27 @@ function InspoPage(){
         navigate("/OtherInspirationDetails");
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        handleSearch(); // Call handleSearch function when form is submitted
+    };
     
     return(
         <div className= "subcategory-container">
-            <div className="search-container">
+            <form onSubmit={handleSubmit}>
+                <div className="search-container">
                     <input
                         type="text"
                         placeholder="Search by username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
-                    <button onClick={handleSearch}>Search</button>
+                    <button type="submit">
+                        <FaSearch size={20} />
+                    </button>
                     {searchError && <p className="error-message">{searchError}</p>}
-            </div>
+                </div>
+            </form>
             <div className="clothing-items-container">
                 {inspirations.map((inspiration) => (
                 <div key={inspiration.id} className="clothing-item" onClick={() => handleClick(inspiration.inspirationId)}>

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack, IoMdCloseCircle } from "react-icons/io";
 import "./Chat.scss";
 import withAuth from "../extras/withAuth";
+import { useSubscription } from "react-stomp-hooks";
+
 
 function Chat() {
     const { chatId } = useParams();
@@ -13,6 +15,7 @@ function Chat() {
     const [isLoading, setIsLoading] = useState(true);
     const [newMessage, setNewMessage] = useState("");
     const userId = localStorage.getItem('userId');
+    useSubscription(`/topic/chat/${chatId}`, ()=>fetchMessages());
 
     useEffect(() => {
         fetchChat();
@@ -120,9 +123,6 @@ function Chat() {
                         {chat && (
                             <div className="user-info">
                                 <h1 className="title">{chat.user} | {chat.clothingItem}</h1>
-                                <div className="profile-picture">
-                                    <img src={chat.profilePicture} alt="Profile" />
-                                </div>
                             </div>
                         )}
                         <div className="status-container">

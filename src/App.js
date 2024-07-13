@@ -38,52 +38,77 @@ import OtherClothingItemDetails from './Components/OtherUser/OtherClothingItemDe
 import Chat from './Components/notifications/Chat.jsx';
 import Chats from './Components/notifications/Chats.jsx';
 import MySubcategory from './Components/Profile/ClothingItem/MySubcategory.jsx';
-
+import Archivedutfits from './Components/Profile/ArchivedOutfits.jsx';
+import ArchivedOutfitDetails from './Components/Profile/ArchivedOutfitDetails.jsx';
+import { StompSessionProvider } from 'react-stomp-hooks';
+import PublicProfile from './Components/Profile/PublicProfile/PublicProfile.jsx';
+import PublicAccesories from './Components/Profile/PublicProfile/PublicAccesories.jsx'; 
+import PubliBottoms from './Components/Profile/PublicProfile/PublicBottoms.jsx';
+import PublicTops from './Components/Profile/PublicProfile/PublicTops.jsx';
+import PublicInspirations from './Components/Profile/PublicProfile/PublicInspirations.jsx';
+import PublicCurrentOutfit from './Components/Profile/PublicProfile/PublicCurrentOutfit.jsx';
+import PublicClothingItemDetails from './Components/Profile/PublicProfile/PublicClothingItemDetails.jsx';
+import PublicItems from './Components/Profile/PublicProfile/PublicItems.jsx';
+import PublicInspirationDetails from './Components/Profile/PublicProfile/PublicInspirationDetails.jsx';
+import PublicSubcategory from './Components/Profile/PublicProfile/PublicSubcategory.jsx';
 
 function App() {
   return (
     <Router> {/* Use BrowserRouter */}
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/Signup' element={<Signup />} />
-        <Route path='/Profile' element={<Profile />} />
-        <Route path='/Edit' element={<Edit />} />
-        <Route path='/Uploads' element={<Uploads />} />
-        <Route path='/UploadClothingItem' element={<UploadCLothingItem />} />
-        <Route path='/MyItems' element={<MyItems />} />
-        <Route path='/MyTops' element={<MyTops />} />
-        <Route path='/MyBottoms' element={<MyBottoms/>}/>
-        <Route path='/MyAccesories' element={<MyAccesories/>}/>
-        <Route path='/UploadInspiration' element={<UploadInspiration/>} />
-        <Route path='/MyTopsSubcategory' element={<MyTopsSubcategory/>} />
-        <Route path='/MyClothingItemDetails' element={<MyClothingItemDetails/>} />
-        <Route path='/UploadOutfit' element={<UploadOutfit/>} />
-        <Route path='/MyInspirations' element={<MyInspirations/>} />
-        <Route path='/MyCurrentOutfit' element={<MyCurrentOutfit/>} />
-        <Route path='/MyInspirationDetails' element={<MyInspirationDetails/>} />
-        <Route path='/InspoPage' element={<InspoPage/>} />
-        <Route path='/OtherUserProfile' element={<OtherUserProfile/>} />
-        <Route path='/OtherItems' element={<OtherItems/>} />
-        <Route path='/OtherTops' element={<OtherTops/>} />
-        <Route path='/OtherAccesories' element={<OtherAccesories/>} />
-        <Route path='/OtherBottoms' element={<OtherBottoms/>} />
-        <Route path='/OtherSubcategory' element={<OtherSubcategory/>} />
-        <Route path='/OtherInspirations' element={<OtherInspirations/>} />
-        <Route path='/OtherCurrentOutfit' element={<OtherCurrentOutfit/>} />
-        <Route path='/MyFriends' element={<MyFriends/>} />
-        <Route path='/OtherFriends' element={<OtherFriends/>} />
-        <Route path='/OtherInspirationDetails' element={<OtherInspirationDetails/>} />
-        <Route path='/Feed' element={<Feed/>} />
-        <Route path='/LikedInspo' element={<LikedInspo/>} />
-        <Route path='/NotificationScreen' element={<NotificationScreen/>} />
-        <Route path='/BorrowRequest/:requestId' element={<BorrowRequest/>} />
-        <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
-        <Route path='/Chat/:chatId' element={<Chat/>} />
-        <Route path='/Chats' element={<Chats/>} />
-        <Route path='/MySubcategory' element={<MySubcategory/>} />
-       
+      <StompSessionProvider url="ws://localhost:8080/message-broker">
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/Signup' element={<Signup />} />
+          <Route path='/Profile' element={<Profile />} />
+          <Route path='/Edit' element={<Edit />} />
+          <Route path='/Uploads' element={<Uploads />} />
+          <Route path='/UploadClothingItem' element={<UploadCLothingItem />} />
+          <Route path='/MyItems' element={<MyItems />} />
+          <Route path='/MyTops' element={<MyTops />} />
+          <Route path='/MyBottoms' element={<MyBottoms/>}/>
+          <Route path='/MyAccesories' element={<MyAccesories/>}/>
+          <Route path='/UploadInspiration' element={<UploadInspiration/>} />
+          <Route path='/MyTopsSubcategory' element={<MyTopsSubcategory/>} />
+          <Route path='/MyClothingItemDetails' element={<MyClothingItemDetails/>} />
+          <Route path='/UploadOutfit' element={<UploadOutfit/>} />
+          <Route path='/MyInspirations' element={<MyInspirations/>} />
+          <Route path='/MyCurrentOutfit' element={<MyCurrentOutfit/>} />
+          <Route path='/MyInspirationDetails/:inspirationId' element={<MyInspirationDetails/>} />
+          <Route path='/InspoPage' element={<InspoPage/>} />
+          <Route path='/OtherUserProfile' element={<OtherUserProfile/>} />
+          <Route path='/OtherItems' element={<OtherItems/>} />
+          <Route path='/OtherTops' element={<OtherTops/>} />
+          <Route path='/OtherAccesories' element={<OtherAccesories/>} />
+          <Route path='/OtherBottoms' element={<OtherBottoms/>} />
+          <Route path='/OtherSubcategory' element={<OtherSubcategory/>} />
+          <Route path='/OtherInspirations' element={<OtherInspirations/>} />
+          <Route path='/OtherCurrentOutfit' element={<OtherCurrentOutfit/>} />
+          <Route path='/MyFriends' element={<MyFriends/>} />
+          <Route path='/OtherFriends' element={<OtherFriends/>} />
+          <Route path='/OtherInspirationDetails' element={<OtherInspirationDetails/>} />
+          <Route path='/Feed' element={<Feed/>} />
+          <Route path='/LikedInspo' element={<LikedInspo/>} />
+          <Route path='/NotificationScreen' element={<NotificationScreen/>} />
+          <Route path='/BorrowRequest/:requestId' element={<BorrowRequest/>} />
+          <Route path='/OtherClothingItemDetails' element={<OtherClothingItemDetails/>} />
+          <Route path='/Chat/:chatId' element={<Chat/>} />
+          <Route path='/Chats' element={<Chats/>} />
+          <Route path='/MySubcategory' element={<MySubcategory/>} />
+          <Route path='/ArchivedOutfits' element={<Archivedutfits/>} />
+          <Route path='/ArchivedOutfitDetails/:outfitId' element={<ArchivedOutfitDetails/>} />
+          <Route path='/PublicProfile/:userId' element={<PublicProfile/>} />
+          <Route path='/PublicAccesories' element={<PublicAccesories/>} />
+          <Route path='/PublicBottoms' element={<PubliBottoms/>} />
+          <Route path='/PublicTops' element={<PublicTops/>} />
+          <Route path='/PublicInspirations' element={<PublicInspirations/>} />
+          <Route path='/PublicCurrentOutfit/:userId' element={<PublicCurrentOutfit/>} />
+          <Route path='/PublicClothingItemDetails' element={<PublicClothingItemDetails/>} />
+          <Route path='/PublicItems' element={<PublicItems/>} />
+          <Route path='/PublicInspirationDetails/:inspirationId' element={<PublicInspirationDetails/>} />
+          <Route path='/PublicSubcategory' element={<PublicSubcategory/>} />
 
-      </Routes>
+        </Routes>
+      </StompSessionProvider>
     </Router>
   );
 }
