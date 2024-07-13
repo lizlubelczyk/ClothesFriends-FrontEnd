@@ -92,7 +92,7 @@ function PublicProfile() {
         <span>{user.username}</span>
       </div>
       <div className="perfil">
-        <Link to="/PublicCurrentOutfit" className={`pfp ${hasOutfit ? 'has-outfit' : ''}`}>
+        <Link to={`/PublicCurrentOutfit/${userId}`} className={`pfp ${hasOutfit ? 'has-outfit' : ''}`}>
           <img src={user.profilePicture} alt="" />
         </Link>
         <div className="botones-seguidores">

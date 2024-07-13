@@ -4,6 +4,8 @@ import { IoIosArrowBack, IoMdTrash } from "react-icons/io";
 import withAuth from "../extras/withAuth";
 import "./MyInspirationDetails.scss";
 import { FaHeart, FaComment } from "react-icons/fa";
+import TweetButton from './TwitterShareButton'; 
+import FacebookShareButton from "./FacebookShareButton";
 
 function MyInspirationDetails() {
     const { inspirationId } = useParams(); // Extract inspirationId from the URL
@@ -157,6 +159,18 @@ function MyInspirationDetails() {
                             <button className="delete-button" onClick={handleDeleteInspiration}>
                                 <IoMdTrash />
                             </button>
+                            <TweetButton
+                                text={`¡Publiqué esta inspiración en ClothesFriends! ${inspiration.description}`}
+                                url={`http://localhost:3000/PublicInspirationDetails/${inspirationId}`}
+                                hashtags={['Inspiration', 'Fashion', 'ClothesFriends']}
+                                via="cFriendstwt"
+                                size="large"
+                            />
+                            <FacebookShareButton
+                                url={`https://clothesfriends.com/PublicInspirationDetails/${inspirationId}`}
+                                quote={`¡Publiqué esta inspiración en ClothesFriends! ${inspiration.description}`}
+                                hashtag="#ClothesFriends"
+                            />
                         </div>
                         {commentsVisible && (
                             <div className="comentarios">

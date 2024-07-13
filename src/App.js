@@ -101,10 +101,10 @@ function App() {
           <Route path='/PublicBottoms' element={<PubliBottoms/>} />
           <Route path='/PublicTops' element={<PublicTops/>} />
           <Route path='/PublicInspirations' element={<PublicInspirations/>} />
-          <Route path='/PublicCurrentOutfit' element={<PublicCurrentOutfit/>} />
+          <Route path='/PublicCurrentOutfit/:userId' element={<PublicCurrentOutfit/>} />
           <Route path='/PublicClothingItemDetails' element={<PublicClothingItemDetails/>} />
           <Route path='/PublicItems' element={<PublicItems/>} />
-          <Route path='/PublicInspirationDetails' element={<PublicInspirationDetails/>} />
+          <Route path='/PublicInspirationDetails/:inspirationId' element={<PublicInspirationDetails/>} />
           <Route path='/PublicSubcategory' element={<PublicSubcategory/>} />
 
         </Routes>
