@@ -50,9 +50,10 @@ html, body{
         }
         .file-upload-button {
             background-color: rgb(228, 223, 231);
-            border: none;
-            cursor: pointer;
+          
             margin-top: 10px;
+            margin-right: 20px;
+           
             
           }
         
@@ -107,7 +108,7 @@ html, body{
             display: flex; // These two lines center the text vertically
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             &:hover {
                 background-color: #C9ADA7;
               }
@@ -120,8 +121,11 @@ html, body{
             width: 87%;
             max-width: 400px; /* Ajusta según sea necesario */
             height: 30px;
-            background-color: rgb(230, 209, 220);
+            background-color: #B06BA9;
             border-radius: 20px;
+            margin-bottom: 10px;
+            
+
             border: 3px solid rgb(20, 19, 19);
             padding: 10px;
             margin-top: 10px;

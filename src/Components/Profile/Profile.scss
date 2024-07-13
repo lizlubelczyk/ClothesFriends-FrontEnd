@@ -280,3 +280,89 @@
         }
     }
 }
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 20px;
+
+        .usuario, .perfil, .botones-seguidores, .full-name {
+            margin-left: -1000px;
+        }
+
+        .usuario {
+            font-size: 30px;
+            margin-left: -1100px;
+        }
+
+        .perfil {
+            flex-direction: row; /* Cambiamos a fila para alinear en horizontal */
+            align-items: center; /* Alineamos verticalmente */
+            margin-top: 20px;
+            margin-left: -800px;
+
+            .pfp {
+                width: 150px;
+                height: 150px;
+                margin-right: 20px; /* Añadimos espacio entre la imagen y el botón "amigos" */
+
+                img {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+
+            .full-name {
+                font-size: 28px;
+                margin-left: 20px; /* Mueve el botón "amigos" al lado de la imagen */
+                display: flex;
+                align-items: center;
+
+                .friend-button {
+                    font-size: 18px;
+                    margin-left: 10px; /* Espacio entre el botón y el nombre */
+                }
+            }
+        }
+
+        .botones-seguidores {
+            margin-left: 20px;
+            .seguidos, .seguidores {
+                font-size: 25px;
+            }
+        }
+
+        .buttons-row {
+            margin-right: 20px;
+            flex-grow: 1;
+
+            .archived-outfits, .posts-likeados {
+                width: 150px;
+                height: 60px;
+                font-size: 18px;
+            }
+        }
+
+        .square1, .square2 {
+            width: 45%;
+            height: 25vh;
+            margin-right: 2.5%;
+            margin-left: 2.5%;
+
+            span, .prendas, .inspiracion {
+                font-size: 45px;
+                margin-left: -160px;
+            }
+        }
+
+        .subir-post {
+            width: 100px;
+            height: 100px;
+        }
+
+        .barra-fija {
+            padding: 20px;
+            height: 70px;
+        }
+    }
+}
