@@ -36,28 +36,26 @@
 
     .clothing-items-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Use auto-fit instead of auto-fill */
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas para dispositivos móviles */
         grid-auto-rows: auto;
         grid-gap: 20px;
         max-width: 100%;
         overflow-y: scroll;
 
-
         .clothing-item {
             width: 100%;
-            max-width: 200px; /* Limit the width of each item */
+            max-width: 100%; /* Ancho máximo del contenedor del ítem */
             height: 250px;
             display: flex;
             justify-content: center;
             border-radius: 10px;
             overflow: hidden;
-    
 
             img {
-                max-width: 100%;
-                max-height: auto;
-                border-radius: 10px;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
+                border-radius: 10px;
             }
         }
     }
@@ -76,15 +74,20 @@
         height: 60px;
         align-items: center;
 
-    
         a {
             text-decoration: none;
             color: inherit;
-            
         }
-    
+
         a:hover {
             color: inherit;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .clothing-items-container {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste automático de columnas */
+            gap: 30px; /* Espacio entre las imágenes */
         }
     }
 }
